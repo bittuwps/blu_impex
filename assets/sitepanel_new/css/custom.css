@@ -1,0 +1,61 @@
+.bg-red{
+    background: #e34724;
+    color: white; 
+}
+.bg-red:hover{
+    border-color: #e34724;
+    background: white;
+    color: #e34724; 
+}
+
+.textarea{
+    
+    margin-bottom: 40px;
+}
+
+.space{
+        margin: 50px 0;
+}
+.btn-primary:hover{
+    color:#33414e;
+    background: white;
+    
+}
+
+.category_form{
+    
+    margin-bottom: 50px;
+
+}
+
+.input_form{
+    margin-bottom: 25px;
+
+}
+
+.fix{
+    margin:10px;
+}
+
+.image{
+    
+            border-radius: 50%;
+    width: 450px;
+    height: 450px;
+    border: 1px solid;
+}
+
+.fa-4x{
+    color: #33414e;
+    font-size: 20em;
+}
+.logo-image{
+    width:300px;
+}
+
+#admin_logo{
+    background: #e34724;
+    color: white;
+    font-size: 26px;
+    font-weight: 300;
+}
