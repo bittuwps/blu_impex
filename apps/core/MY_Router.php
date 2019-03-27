@@ -11,7 +11,7 @@ class MY_Router extends MX_Router
     public function __construct()
     {
         parent::__construct(); 
-        $_SERVER['REQUEST_URI']=str_replace('shriankenterprise/','',$_SERVER['REQUEST_URI']);
+        $_SERVER['REQUEST_URI']=str_replace('blu-impex/','',$_SERVER['REQUEST_URI']);
     }
 
     public function _set_routing()
@@ -94,7 +94,7 @@ class MY_Router extends MX_Router
         $path = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : @getenv('REQUEST_URI');
 
         $uri_aligs_string = trim($path, '/');
-        $uri_aligs_string = str_replace('shriankenterprise', '', $path);
+        $uri_aligs_string = str_replace('blu-impex', '', $path);
         if (strstr($uri_aligs_string, '.html')) {
             $uri_aligs_string = substr($uri_aligs_string, 0, -5);
         }
@@ -107,6 +107,7 @@ class MY_Router extends MX_Router
             $st = substr($st, 0, -5);
         }
         $stArray = $d_b->query("SELECT page_url FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
+        
         if (!empty($uri_segments[1]) && is_array($stArray) && !empty($stArray)) {
             //echo "in subdomain"; die ;
             $uri_aligs_string = str_replace($st, '', $uri_aligs_string);
