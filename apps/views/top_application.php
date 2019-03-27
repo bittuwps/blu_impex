@@ -14,7 +14,7 @@
 			//trace($meta_rec);
 			if (is_array($meta_rec) && !empty($meta_rec)) {
 				?>
-				<title>Shri Ank Enterprise Private Limited</title>
+				<title>Blue Impex</title>
 				<meta name="description" content="<?php echo $meta_rec['meta_description']; ?>" />
 				<meta name="keywords" content="<?php echo $meta_rec['meta_keyword']; ?>" />
 				<?php

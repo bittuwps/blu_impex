@@ -50,10 +50,10 @@ if (!defined('BASEPATH'))
 
 // Local
 
-$db['local']['hostname'] = 'localhost';
-$db['local']['username'] = 'root';
-$db['local']['password'] = '';
-$db['local']['database'] = 'blu_impex';
+$db['local']['hostname'] = 'webpulse.co';
+$db['local']['username'] = 'webpus1_bluimpex';
+$db['local']['password'] = 'CvrK]@}B-eBT';
+$db['local']['database'] = 'webpus1_bluimpexDB';
 $db['local']['dbdriver'] = 'mysql';
 $db['local']['dbprefix'] = '';
 $db['local']['stricton'] = false;
@@ -67,10 +67,10 @@ $db['local']['dbcollat'] = 'utf8_unicode_ci';
 $db['local']['port'] = 3306;
 
 // Testing
-$db['testing']['hostname'] = 'localhost';
-$db['testing']['username'] = 'webpus1_shriank';
-$db['testing']['password'] = ')1br7ZCsgr3)';
-$db['testing']['database'] = 'webpus1_shriankenterprise';
+$db['testing']['hostname'] = 'webpulse.co';
+$db['testing']['username'] = 'webpus1_bluimpex';
+$db['testing']['password'] = 'CvrK]@}B-eBT';
+$db['testing']['database'] = 'webpus1_bluimpexDB';
 $db['testing']['dbdriver'] = 'mysql';
 $db['testing']['dbprefix'] = '';
 $db['testing']['stricton'] = false;
@@ -83,10 +83,10 @@ $db['testing']['char_set'] = 'utf8';
 $db['testing']['dbcollat'] = 'utf8_unicode_ci';
 $db['testing']['port'] = 3306;
 // Live
-$db['live']['hostname'] = 'localhost';
-$db['live']['username'] = 'webpus1_shriank';
-$db['live']['password'] = ')1br7ZCsgr3)';
-$db['live']['database'] = 'webpus1_shriankenterprise';
+$db['live']['hostname'] = 'webpulse.co';
+$db['live']['username'] = 'webpus1_bluimpex';
+$db['live']['password'] = 'CvrK]@}B-eBT';
+$db['live']['database'] = 'webpus1_bluimpexDB';
 $db['live']['dbdriver'] = 'mysql';
 $db['live']['dbprefix'] = '';
 $db['live']['stricton'] = false;
@@ -98,6 +98,8 @@ $db['live']['cachedir'] = '';
 $db['live']['char_set'] = 'utf8';
 $db['live']['dbcollat'] = 'utf8_unicode_ci';
 $db['live']['port'] = 3306;
+
+
 
 // Check the configuration group in use exists
 if (!array_key_exists(ENVIRONMENT, $db)) {

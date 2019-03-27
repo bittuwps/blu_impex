@@ -47,11 +47,9 @@ $config['attributeArray'] = array("textbox"=>"TextBox","textarea"=>"TextArea", "
 $config['attribute_type']=array('textbox','textarea','radio button','checkox','multi select');
 
 
-$config['db_username'] = "root";
-$config['db_password'] = "";
-$config['db_name'] = "shriank";
-
-
+$config['db_username'] = "webpus1_bluimpex";
+$config['db_password'] = "CvrK]@}B-eBT";
+$config['db_name'] = "webpus1_bluimpexDB";
 
 /*
 

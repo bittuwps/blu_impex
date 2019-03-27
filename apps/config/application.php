@@ -14,7 +14,7 @@ $config['bottom.debug'] = 0;
 
 $config['site.status'] = '1';
 
-$config['site_name'] = 'Shri Ank Enterprise Pvt. Ltd.';
+$config['site_name'] = 'Blue Impex';
 
 
 

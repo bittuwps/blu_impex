@@ -249,11 +249,13 @@ class Blog extends Admin_Controller
                 $this->blog_model->safe_update('wl_blog', $posted_data, $where, false);
                 //update meta
 				update_meta_page_url($redirect_url, $res['article_id'], $this->cbk_friendly_url);
-				last_qry();
+				//last_qry();
                 //End here
                 $this->session->set_userdata(array('msg_type' => 'success'));
                 $this->session->set_flashdata('success', lang('successupdate'));
                 redirect('sitepanel/blog/index/', '');
+            }else{
+                echo validation_errors();
             }
             $this->load->view('catalog/view_blog_edit', $data);
         } else {

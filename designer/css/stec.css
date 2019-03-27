@@ -887,3 +887,7 @@ padding-bottom: 5px;
 display: block;
 }
 .sitemap li a:hover{ color:#fe0000;}
+
+.home_slider img {
+    max-width: 100% !important;
+}

@@ -96,7 +96,7 @@ endif;
                             </div>
                             <div class="wi-content">
                                 <p>
-                                    Shri Ank Enterprise Private Limited, was formed in 1997 and since then we have been
+                                    <?= $this->admin_info->site_name ?>, was formed in 1997 and since then we have been
                                     engaged in Distributing, Wholesaling, Supplying as well as Retailing of Veljan
                                     Denison manufactured Hydraulic Vane Pumps, Directional Control Valves and
                                     Replacement Cart Kits.</p>
@@ -160,7 +160,7 @@ endif;
                             <div class="wi-content wi-news">
                                 <ul class="wi-list">
                                     <li><a><i class="fa fa-home"></i> <strong><?= $this->admin_info->site_name ?></strong></a></li>
-                                    <li><a><i class="fa fa-paper-plane"></i></a><?= $this->admin_info->address ?></li>
+                                    <li><a><i class="fa fa-paper-plane"></i><?= $this->admin_info->address ?></li></a>
                                     <li><a><i class="fa fa-phone"></i><?=  $this->admin_info->site_phone_no ?></a></li>
                                 </ul>
                             </div>
@@ -276,3 +276,8 @@ endif;
         </div>
     </div>
 </div>
+<script>
+    /* $(document).ready(function(){
+        $(document).find('a').attr('href','javascript:;;');
+    }); */
+</script>

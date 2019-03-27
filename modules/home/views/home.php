@@ -13,7 +13,7 @@
 	}
 ?>
 
-<section class="preview-2 slider_sec">
+<section class="preview-2">
 	<div id="home_slider" class="slides nivoSlider">
 		<?php foreach($banner as $ban_image){
 			?>
@@ -73,7 +73,7 @@
 			<div class="row">
 				<div class="col-md-6 no-padding wow fadeInLeft animated" data-wow-delay=".2s">
 					<div class="about-image hover-effect">
-						<img alt="" src="<?php echo theme_url(); ?>images/home/about/construction-split-img1.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
+						<img alt="" src="<?php echo theme_url(); ?>images/home/about/non-woven-bag-making-machine.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
 						 title="<?= $this->admin_info->site_name ?>">
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 			<div class="row">
 				<div class="col-md-6 no-padding pull-right sm-float-none wow fadeInRight animated" data-wow-delay=".4s">
 					<div class="about-image hover-effect">
-						<img alt="" src="<?php echo theme_url(); ?>images/home/about/construction-split-img2.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
+						<img alt="" src="<?php echo theme_url(); ?>images/home/about/blu-impex-home.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
 						 title="<?= $this->admin_info->site_name ?>">
 					</div>
 				</div>
@@ -102,8 +102,7 @@
 					<div class="split-box text-center center-block equalheight" style="height: 451.984px;">
 						<div class="about-box">
 							<h1>Why <span>Us?</span></h1>
-							<p>We ensure that your Machines or Power Packs have the best Quality Hydraulic pumps and Values so that there is
-								least down time cost at your end. We also see that our rates are most competitive in the Market.</p>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 							<a href="javascript:void()" class="read_more">Learn More</a>
 						</div>
 					</div>

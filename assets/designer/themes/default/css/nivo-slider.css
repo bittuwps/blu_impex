@@ -327,12 +327,12 @@
 }
 
 .preview-2 .nivo-directionNav a.nivo-prevNav:hover:before {
-    background: #5eaed8;
+    background: #c00000;
     color: #ffffff;
 }
 
 .preview-2 .nivo-directionNav a.nivo-prevNav:before {
-   background:rgba(94, 174, 216, 0.7);
+   background:rgba(0, 32, 96, 0.7);
     content: "\f104";
     font: normal normal normal 14px/1 FontAwesome;
     color: #fff;
@@ -353,12 +353,12 @@
 }
 
 .preview-2 .nivo-directionNav a.nivo-nextNav:hover:before {
-    background: #5eaed8;
+    background: #c00000;
     color: #ffffff;
 }
 
 .preview-2 .nivo-directionNav a.nivo-nextNav:before {
-    background:rgba(94, 174, 216, 0.7);
+    background:rgba(0, 32, 96, 0.7);
     content: "\f105";
     font: normal normal normal 14px/1 FontAwesome;
     color: #fff;
@@ -407,6 +407,6 @@
 
 .preview-2 .nivo-controlNav a:hover,
 .preview-2 .nivo-controlNav a.active {
-    background: #5eaed8;
+    background: #c00000;
     cursor: pointer;
 }
