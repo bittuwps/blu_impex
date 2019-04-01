@@ -153,52 +153,59 @@ if (!function_exists('get_nested_dropdown_menu')) {
     }
 }
 
-if (!function_exists('get_nested_dropdown_menu')) {
+if (!function_exists('get_nested_dropdown_menu_sub')) {
 
-    function get_nested_dropdown_menu_subdomain($parent, $selectId = "", $pad = "|__")
-    {
 
-        $ci = CI();
 
-        $selId = ($selectId != "") ? $selectId : "";
+    function get_nested_dropdown_menu_sub($parent, $selectId = "", $pad = "|__") {
 
-        $var = "";
+      $ci = CI();
 
-        $sql = "SELECT * FROM wl_categories WHERE parent_id=$parent AND status='1' ";
+      $selId = ( $selectId != "" ) ? $selectId : "";
 
-        $query = $ci->db->query($sql);
+      $var = "";
 
-        $num_rows = $query->num_rows();
+      $sql = "SELECT * FROM wl_categories WHERE parent_id=$parent AND status='1' ";
 
-        if ($num_rows > 0) {
+      $query = $ci->db->query($sql);
 
-            foreach ($query->result_array() as $row) {
+      $num_rows = $query->num_rows();
 
-                $category_name = ucfirst(strtolower($row['category_name']));
+      if ($num_rows > 0) {
 
-                if (has_child($row['category_id'])) {
+        foreach ($query->result_array() as $row) {
 
-                    $var .= '<optgroup label="' . $pad . '&nbsp;' . $category_name . '" >' . $category_name . '</optgroup>';
+          $category_name = ucfirst(strtolower($row['category_name']));
 
-                    $var .= get_nested_dropdown_menu_subdomain($row['category_id'], $selId, '&nbsp;&nbsp;&nbsp;' . $pad);
+          if (has_child($row['category_id'])) {
 
-                } else {
+            $sel = (in_array($row['category_id'],explode(',',$selectId))) ? "selected='selected'" : "";
 
-                    $sel = (in_array($row['category_id'], explode(',', $selectId))) ? "selected='selected'" : "";
+            //$var .= '<optgroup label="' . $pad . '&nbsp;' . $category_name . '" >' . $category_name . '</optgroup>';
 
-                    $var .= '<option value="' . $row['category_id'] . '" ' . $sel . '>' . $pad . $category_name . '  </option>';
+             $var .= '<option value="' . $row['category_id'] . '" ' . $sel . '>' . $pad .'&nbsp;'. $category_name . '  </option>';
 
-                }
+            $var .= get_nested_dropdown_menu_sub($row['category_id'], $selId, '&nbsp;&nbsp;&nbsp;' . $pad);
 
-            }
+          } else {
+
+            $sel = (in_array($row['category_id'],explode(',',$selectId))) ? "selected='selected'" : "";
+
+            $var .= '<option value="' . $row['category_id'] . '" ' . $sel . '>' . $pad . $category_name . '  </option>';
+
+          }
 
         }
 
-        return $var;
+      }
+
+      return $var;
 
     }
 
-}
+  
+
+  }
 
 /*
 
@@ -572,6 +579,54 @@ if (!function_exists('getTopParentIDArray')) {
         }
 
         return $catParentsArray;
+
+    }
+
+}
+
+if (!function_exists('get_nested_dropdown_menu')) {
+
+    function get_nested_dropdown_menu($parent, $selectId = "", $pad = "|__")
+
+    {
+
+        $ci = CI();
+
+        $selId = ($selectId != "") ? $selectId : "";
+
+        $var = "";
+
+        $sql = "SELECT * FROM wl_categories WHERE parent_id=$parent AND status='1' ";
+
+        $query = $ci->db->query($sql);
+
+        $num_rows = $query->num_rows();
+
+        if ($num_rows > 0) {
+
+            foreach ($query->result_array() as $row) {
+
+                $category_name = ucfirst(strtolower($row['category_name']));
+
+                if (has_child($row['category_id'])) {
+
+                    $var .= '<optgroup label="' . $pad . '&nbsp;' . $category_name . '" >' . $category_name . '</optgroup>';
+
+                    $var .= get_nested_dropdown_menu($row['category_id'], $selId, '&nbsp;&nbsp;&nbsp;' . $pad);
+
+                } else {
+
+                    $sel = (in_array($row['category_id'], explode(',', $selectId))) ? "selected='selected'" : "";
+
+                    $var .= '<option value="' . $row['category_id'] . '" ' . $sel . '>' . $pad . $category_name . '  </option>';
+
+                }
+
+            }
+
+        }
+
+        return $var;
 
     }
 

@@ -5,44 +5,24 @@
 <div class="mob_hider"></div>
 <!-- HEADER ENDS -->
 
-
-<div class="container">
-	<div class="breadcrumb">
-		<div class="container">
-			<div class="breadcrumb-inner">
-				<ul class="list-inline list-unstyled">
-					<li>
-						<a href="<?php echo site_url(); ?>">
+<section class="breadcrumb_section hidden-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="breadcrumb">
+					<li><a href="<?php echo site_url(); ?>">
 							<?php echo ($this->session->userdata('lang') == 'p')?$this->lang->line('home'):'Home';?>
-						</a>
-					</li>
-					<li class='active'>
-						<?php echo ($this->session->userdata('lang') == 'p')?$this->lang->line('contactus'):'Market Area';?>
-					</li>
+						</a></li>
+					<li class="active"><?php echo ($this->session->userdata('lang') == 'p')?$this->lang->line('contactus'):'Market Area';?></li>
 				</ul>
 			</div>
-			<!-- /.breadcrumb-inner -->
 		</div>
-		<!-- /.container -->
 	</div>
-
-	<section class="wrapper" style="min-height:600px">
-		<div class="p10 pt30">
-			<h1 class="bb2 pb3">Market Area</h1>
-			<!--    
-				<h3 class="mt25">Country</h3>
-				<ul class="market-list">
-					<?php
-						foreach ($country as $row) {
-							?>
-								<li><a href="<?php echo site_url($row['country_temp_name']); ?>"><?php echo $row['country_name']; ?></a></li>
-							<?php
-						}	
-					?>
-				</ul>
-			-->
-
-			<h3 class="mt25">Indian States</h3>
+</section>
+<section class="market_area">
+    <div class="container">
+			<h1>Market Area</h1>
+			<h2>Indian States</h2>
 			<ul class="market-list">
 				<?php
       				foreach ($state as $rows) {
@@ -56,13 +36,13 @@
 			</ul>
 
 
-
-			<ul class="market-list">
-				<h3 class="mt25">Indian Cities</h3>
+<h3>Indian Cities</h3>
+			<ul class="market_city">				
 				<?php
         			foreach ($state as $rows) {
          	 			$city = $this->db->query("SELECT id, state_id, title, temp_title, status FROM tbl_city WHERE status ='1' AND state_id = '" . $rows['id'] . "'")->result_array();
           				?>
+          				
 						<li>
 							<h3 class="mt25"> <?php echo $rows['title']; ?> </h3>
 
@@ -84,7 +64,7 @@
 			</ul>			
 		</div>
 	</section>
-</div>
+
 <section class="wrapper pt15  bt1 mid_banner_cont">
 	<?php getBrand(); ?>
 </section>

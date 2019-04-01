@@ -442,7 +442,7 @@ class Location extends Admin_Controller
         if ($state_id > 0) {
             $condtion .= "AND state_id ='" . $state_id . "'";
         }
-//    if ($district_id > 0) {
+        //    if ($district_id > 0) {
         //      $condtion .= "AND district_id ='" . $district_id . "'";
         //    }
         if ($country_id > 0) {
@@ -547,7 +547,7 @@ class Location extends Admin_Controller
             }
         }
 
-//    $data['includes'] = $this->view_path . 'city_list_vew';
+        //    $data['includes'] = $this->view_path . 'city_list_vew';
 
         $this->load->view('location/city_list_view', $data);
     }

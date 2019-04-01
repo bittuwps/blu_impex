@@ -56,7 +56,7 @@
 							<button class="details_en">Enquire Now</button>
 						</a>
 					</div>
-					<?php echo $maincat[0]['category_description'];?>
+					<?php echo $category_description;?>
 				</div>
 				<?php
         			if (is_array($res) && !empty($res)) {
