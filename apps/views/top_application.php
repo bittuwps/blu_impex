@@ -11,10 +11,10 @@
 			header("Cache-Control: post-check=0, pre-check=0", false);
 			header("Pragma: no-cache");
 			$meta_rec = $this->meta_info;
-			//trace($meta_rec);
+			//dd($meta_rec);
 			if (is_array($meta_rec) && !empty($meta_rec)) {
 				?>
-				<title>Blue Impex</title>
+				<title><?= $meta_rec['meta_title'] ?></title>
 				<meta name="description" content="<?php echo $meta_rec['meta_description']; ?>" />
 				<meta name="keywords" content="<?php echo $meta_rec['meta_keyword']; ?>" />
 				<?php

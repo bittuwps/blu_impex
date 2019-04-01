@@ -2,28 +2,20 @@
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
-
 /**
  * The global CI helpers
-
-
  */
 if (!function_exists('CI')) {
-
     function CI()
     {
         if (!function_exists('get_instance')) {
             return false;
         }
-
         $CI = &get_instance();
         return $CI;
     }
-
 }
-
 if (!function_exists('getDateFormat')) {
-
     function getDateFormat($date, $format, $seperator1 = ",")
     {
         switch ($format) {
@@ -32,43 +24,36 @@ if (!function_exists('getDateFormat')) {
                 $arr_date = strtotime($arr_date[0]);
                 $ret_date = date("d M" . $seperator1 . " Y", $arr_date);
                 break;
-
             case 2: // (Ymd)->(dmY) 06 December, 2010
                 $arr_date = explode($seperator1, $date);
                 $arr_date = strtotime($arr_date[0]);
                 $ret_date = date("d F" . $seperator1 . " Y", $arr_date);
                 break;
-
             case 3: // (Ymd)->(dmY) Mon Dec 06, 2010
                 $arr_date = explode($seperator1, $date);
                 $arr_date = strtotime($arr_date[0]);
                 $ret_date = date("D M d" . $seperator1 . " Y", $arr_date);
                 break;
-
             case 4: // (Ymd)->(dmY) Monday December 06, 2010
                 $arr_date = explode($seperator1, $date);
                 $arr_date = strtotime($arr_date[0]);
                 $ret_date = date("l F d" . $seperator1 . " Y", $arr_date);
                 break;
-
             case 5: // (Ymd)->(dmY) Monday December 06, 2010, 03:04:00
                 $arr_time1 = explode(" ", $date);
                 $arr_date = strtotime($date);
                 $ret_date = date("l F d" . $seperator1 . " Y" . $seperator1 . " h:i:s", $arr_date);
                 break;
-
             case 6: // (Ymd)->(dmY) Monday December 06, 2010, 15:03:PM
                 $arr_time1 = explode(" ", $date);
                 $arr_date = strtotime($date);
                 $ret_date = date("l F d" . $seperator1 . " Y" . $seperator1 . " H:i:A", $arr_date);
                 break;
-
             case 7: // (Ymd)->(dmY) Monday December 06, 2010, 15:03:PM
                 $arr_time1 = explode(" ", $date);
                 $arr_date = strtotime($date);
                 $ret_date = date("d M" . $seperator1 . " Y" . $seperator1 . " H:i:A", $arr_date);
                 break;
-
             case 8: // (Ymd)->(dmY) Monday December 06, 2010, 03:04:00
                 $arr_time1 = explode(" ", $date);
                 $arr_date = strtotime($date);
@@ -92,19 +77,14 @@ if (!function_exists('getDateFormat')) {
         }
         return $ret_date;
     }
-
 }
-
 if (!function_exists('humanTiming')) {
-
     function humanTiming($time)
     {
         $CI = CI();
         $p = "";
         $currtent_time = strtotime($CI->config->item('date_time_format'));
-
         $diff = (int) abs($currtent_time - $time);
-
         $tokens = array(
             31536000 => 'year',
             2592000 => 'month',
@@ -118,30 +98,23 @@ if (!function_exists('humanTiming')) {
             if ($diff < $unit) {
                 continue;
             }
-
             $numberOfUnits = round($diff / $unit);
             return $p = $numberOfUnits . ' ' . $text . (($numberOfUnits > 1) ? 's' : '');
         }
         return ($p == '' ? '1 seconds' : $p);
     }
-
 }
-
 /* * **********************************************************
 1.Convert Nested Array to Single Array
 2.If $key is not empty then key will be preserved but
 value will be overwrite if occur more than once
-
  * ********************************************************** */
-
 if (!function_exists('array_flatten')) {
-
     function array_flatten($array, $return, $key = '')
     {
         if (is_array($array)) {
             foreach ($array as $ky => $val) {
                 $key = ($key !== '' ? $ky : '');
-
                 $return = array_flatten($val, $return, $key);
             }
         } else {
@@ -153,35 +126,26 @@ if (!function_exists('array_flatten')) {
         }
         return $return;
     }
-
 }
-
 /*
 find one array
 $arr1 =  array('0'=>'1','1'=>'2')
 $arr2 =  = array('1' =>'Boarding Job','2' =>'Night Job','3'=>'Daily Job');
 $result ==> Boarding Job,Night Job
  */
-
 function getArrayValueBykey($arr1, $arr2)
 {
     $res = array();
     if (is_array($arr1) && is_array($arr2)) {
-
         foreach ($arr1 as $key => $val) {
-
             if ($val != "") {
-
                 $res[] = $arr2[$val];
             }
         }
     }
-
     return $res;
 }
-
 if (!function_exists('getAge')) {
-
     function getAge($dob)
     {
         $age = 31536000; //days secon 86400X365
@@ -192,14 +156,10 @@ if (!function_exists('getAge')) {
         }
         return $finalAge;
     }
-
 }
-
 //$in_string = " hi  this dkmphp  net india  wenlink india  development fun company php delhi";
 //$spam_word_arr = array('php','net','fun');
-
 if (!function_exists('check_spam_words')) {
-
     function check_spam_words($spam_word_arr, $in_string)
     {
         $is_spam_found = false;
@@ -213,22 +173,16 @@ if (!function_exists('check_spam_words')) {
         }
         return $is_spam_found;
     }
-
 }
-
 if (!function_exists('file_ext')) {
-
     function file_ext($file)
     {
         $file_ext = strtolower(strrchr($file, '.'));
         $file_ext = substr($file_ext, 1);
         return $file_ext;
     }
-
 }
-
 if (!function_exists('applyFilter')) {
-
     function applyFilter($type, $val)
     {
         switch ($type) {
@@ -241,11 +195,8 @@ if (!function_exists('applyFilter')) {
                 break;
         }
     }
-
 }
-
 if (!function_exists('removeImage')) {
-
     function removeImage($cfgs)
     {
         if ($cfgs['source_dir'] != '' && $cfgs['source_file'] != '') {
@@ -255,62 +206,46 @@ if (!function_exists('removeImage')) {
             }
         }
     }
-
 }
-
 if (!function_exists('trace')) {
-
     function trace()
     {
         list($callee) = debug_backtrace();
         $arguments = func_get_args();
         $total_arguments = count($arguments);
-
         echo '<fieldset style="background: #fefefe !important; border:3px red solid; padding:5px; font-family:Courier New,Courier, monospace;font-size:12px">';
         echo '<legend style="background:lightgrey; padding:6px;">' . $callee['file'] . ' @ line: ' . $callee['line'] . '</legend><pre>';
         $i = 0;
         foreach ($arguments as $argument) {
             echo '<br/><strong>Debug #' . (++$i) . ' of ' . $total_arguments . '</strong>: ';
-
             if ((is_array($argument) || is_object($argument)) && count($argument)) {
                 print_r($argument);
             } else {
                 var_dump($argument);
             }
         }
-
         echo '</pre>' . PHP_EOL;
         echo '</fieldset>' . PHP_EOL;
     }
-
 }
-
 if (!function_exists('find_paging_segment')) {
-
     function find_paging_segment($debug = false)
     {
         $ci = CI();
         $segment_array = $ci->uri->segments;
-
         if ($debug) {
             trace($ci->uri->segments);
         }
-
         $key = array_search('pg', $segment_array);
-
         return $key + 1;
     }
-
 }
-
 if (!function_exists('make_missing_folder')) {
-
     function make_missing_folder($dir_to_create = "")
     {
         if (empty($dir_to_create)) {
             return;
         }
-
         $dir_path = UPLOAD_DIR;
         $subdirs = explode("/", $dir_to_create);
         foreach ($subdirs as $dir) {
@@ -325,11 +260,8 @@ if (!function_exists('make_missing_folder')) {
             }
         }
     }
-
 }
-
 if (!function_exists('char_limiter')) {
-
     function char_limiter($str, $len, $suffix = '...')
     {
         $str = strip_tags($str);
@@ -338,17 +270,13 @@ if (!function_exists('char_limiter')) {
         }
         return $str;
     }
-
 }
-
 if (!function_exists('redirect_top')) {
-
     function redirect_top($url = '')
     {
         if (!strpos($url, 'ttp://') && !strpos($url, 'ttps://')) {
             $url = base_url() . $url;
         }
-
         if ($url == ''):
         ?>
       <script>
@@ -366,44 +294,28 @@ else:
 endif;
         exit;
     }
-
 }
-
 if (!function_exists('confirm_js_box')) {
-
     function confirm_js_box($txt = 'remove')
     {
-
         $var = "onclick=\"return confirm('Are you sure you want to $txt this record');\" ";
         return $var;
     }
-
 }
-
 if (!function_exists('make_select_box')) {
-
     function make_select_box($varg = array(), $result = array())
     {
-
         $ci = CI();
         $var = "";
-
         $varg['default_text'] = !array_key_exists('default_text', $varg) ? "Select" : $varg['default_text'];
-
         $varg['id'] = !array_key_exists('id', $varg) ? $varg['name'] : $varg['id'];
-
         $opt_val_fld = !array_key_exists('opt_val_fld', $varg) ? $varg['opt_val_fld'] : 'key';
-
         $opt_txt_fld = !array_key_exists('opt_txt_fld', $varg) ? $varg['opt_txt_fld'] : 'value';
-
         $is_associative_array = !array_key_exists('associative', $varg) ? false : $varg['associative'];
-
         $var .= '<select name="' . $varg['name'] . '" id="' . $varg['id'] . '" ' . $varg['format'] . '>';
-
         if ($varg['default_text'] != "") {
             $var .= '<option value="" selected="selected">' . $varg['default_text'] . '</option>';
         }
-
         foreach ($result as $key => $val) {
             if (is_array($val) && !empty($val)) {
                 if (is_array($varg['current_selected_val'])) {
@@ -411,35 +323,26 @@ if (!function_exists('make_select_box')) {
                 } else {
                     $select_element = ($varg['current_selected_val'] == $val[$opt_val_fld]) ? "selected" : "";
                 }
-
                 $var .= '<option value="' . $val[$opt_val_fld] . '" ' . $select_element . '>' . ucfirst($val[$opt_txt_fld]) . '</option>';
             } else {
-
                 $opt_val_fld = $opt_val_fld === 'key' ? $key : $val;
                 $opt_txt_fld = $opt_txt_fld === 'key' ? $key : $val;
-
                 if (is_array($varg['current_selected_val'])) {
                     $select_element = in_array($opt_val_fld, $varg['current_selected_val']) ? "selected" : "";
                 } else {
                     $select_element = ($varg['current_selected_val'] == $opt_val_fld) ? "selected" : "";
                 }
-
                 $var .= '<option value="' . $opt_val_fld . '" ' . $select_element . '>' . $opt_txt_fld . '</option>';
             }
         }
-
         $var .= '</select>';
-
         return $var;
     }
-
 }
-
 function CountrySelectBox($varg = array())
 {
     $CI = CI();
     $var = "";
-
     /*   * ********************************************************
     default_text         =>Default Option Text
     name         =>             Dropdn name
@@ -447,13 +350,11 @@ function CountrySelectBox($varg = array())
     format              =>    all extra attributes for the dpdn(style,class,event...)
     opt_val_fld     =>      DpDn option value field to be fetched from database
     opt_txt_fld     =>      DpDn option text field to be fetched from database
-
      * ********************************************************* */
     $varg['default_text'] = !array_key_exists('default_text', $varg) ? "Select Country" : $varg['default_text'];
     $varg['id'] = !array_key_exists('id', $varg) ? $varg['name'] : $varg['id'];
     $opt_val_fld = !array_key_exists('opt_val_fld', $varg) ? "name" : $varg['opt_val_fld'];
     $opt_txt_fld = !array_key_exists('opt_txt_fld', $varg) ? "name" : $varg['opt_txt_fld'];
-
     $var .= '<select name="' . $varg['name'] . '" id="' . $varg['id'] . '" ' . $varg['format'] . '>';
     if ($varg['default_text'] != "") {
         $var .= '<option value="" selected="selected">' . $varg['default_text'] . '</option>';
@@ -470,9 +371,7 @@ function CountrySelectBox($varg = array())
     $var .= '</select>';
     return $var;
 }
-
 if (!function_exists('city_options')) {
-
     function city_options($data_type = "", $selected_val = "")
     {
         $CI = CI();
@@ -480,11 +379,9 @@ if (!function_exists('city_options')) {
         if ($data_type == "collection") {
             $qryStr = "AND is_data_collection = '1'";
         }
-
         if ($data_type == "operational") {
             $qryStr = "AND is_data_available = '1'";
         }
-
         $city_res = $CI->db->query("SELECT * FROM tbl_city WHERE 1 " . $qryStr)->result_array();
         //echo_sql();
         $var = "";
@@ -495,27 +392,20 @@ if (!function_exists('city_options')) {
         //echo $var; die;
         return $var;
     }
-
 }
-
 if (!function_exists('get_content')) {
-
     function get_content($tbl = "wl_auto_respond_mails", $pageId)
     {
         $CI = CI();
-
         if ($pageId > 0) {
             $res = $CI->db->get_where($tbl, array('id' => $pageId))->row();
-
             if (is_object($res)) {
                 return $res;
             }
         }
     }
-
 }
 if (!function_exists('get_site_email')) {
-
     function get_site_email()
     {
         $CI = CI();
@@ -526,32 +416,23 @@ if (!function_exists('get_site_email')) {
         if ($query->num_rows() > 0) {
             return $query->row();
         }
-
     }
-
 }
-
 if (!function_exists('category_link')) {
-
     function category_link($parent)
     {
         $ci = CI();
         $record_count = 0;
-
         $p = $ci->db->query("SELECT * FROM  wl_categories WHERE parent_id='$parent' and status='1'");
-
         $rsrow = $p->num_rows();
         if ($rsrow > 0) {
             $link_url = base_url() . "category/index/" . $parent;
         } else {
             $link_url = base_url() . "products/index/" . $parent;
         }
-
         return $link_url;
     }
-
 }
-
 function timeDiff($firstTime, $lastTime)
 {
     $time = $lastTime;
@@ -561,9 +442,7 @@ function timeDiff($firstTime, $lastTime)
     $rt = "";
     // perform subtraction to get the difference (in seconds) between times
     $timeDiff = $firstTime - $lastTime;
-
     // return the difference
-
     if ($timeDiff > 60) {
         if ($timeDiff > 60 && $timeDiff < 1440) {
             $timeDiff = $timeDiff / 60;
@@ -584,9 +463,7 @@ function timeDiff($firstTime, $lastTime)
     }
     return $rt;
 }
-
 if (!function_exists('my_array_column')) {
-
     function my_array_column(array $input, $columnKey, $indexKey = null)
     {
         $array = array();
@@ -611,9 +488,7 @@ if (!function_exists('my_array_column')) {
         }
         return $array;
     }
-
 }
-
 //Find Product ID in Coupon Session Array
 function findKey($array, $keySearch)
 { // check whether input is an array
@@ -625,7 +500,6 @@ function findKey($array, $keySearch)
         }
     }
 }
-
 //Send SMS
 function sendSms($mobile)
 {
@@ -639,7 +513,6 @@ function sendSms($mobile)
     //end
     echo $otp;
 }
-
 //encryption
 function encrypt($plainText, $key)
 {
@@ -654,7 +527,6 @@ function encrypt($plainText, $key)
     }
     return bin2hex($encryptedText);
 }
-
 function decrypt($encryptedText, $key)
 {
     $secretKey = hextobin(md5($key));
@@ -667,15 +539,12 @@ function decrypt($encryptedText, $key)
     mcrypt_generic_deinit($openMode);
     return $decryptedText;
 }
-
 //*********** Padding Function *********************
-
 function pkcs5_pad($plainText, $blockSize)
 {
     $pad = $blockSize - (strlen($plainText) % $blockSize);
     return $plainText . str_repeat(chr($pad), $pad);
 }
-
 //********** Hexadecimal to Binary function for php 4.0 version ********
 function hextobin($hexString)
 {
@@ -690,12 +559,10 @@ function hextobin($hexString)
         } else {
             $binString .= $packedString;
         }
-
         $count += 2;
     }
     return $binString;
 }
-
 function getBrand()
 {
     $ci = CI();
@@ -704,7 +571,6 @@ function getBrand()
   <div class="container">
     <!--<h3 class="section-title">Our Sponsers</h3>-->
     <div id="brands-carousel" class="logo-slider wow fadeInUp">
-
       <div class="logo-slider-inner">
         <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
           <?php
@@ -723,7 +589,6 @@ foreach ($p as $bval) {
   </div>
   <?php
 }
-
 if (!function_exists('cur_url')) {
     function cur_url()
     {
@@ -732,9 +597,7 @@ if (!function_exists('cur_url')) {
         $currentURL = str_replace(base_url(), '', $currentURL);
         return str_replace('.html', '', $currentURL);
     }
-
 }
-
 if ( ! function_exists('last_qry'))
 {
     function last_qry($die=true)
@@ -744,42 +607,31 @@ if ( ! function_exists('last_qry'))
         die ;
     }
 }
-
 function set_flash($msg, $key='tmp_flash') {
 	$ci =&get_instance();
 	$ci->session->set_userdata($key,$msg);
 }
-
 function get_flash($key='tmp_flash') {
 	$ci =&get_instance();
 	$msg=$ci->session->userdata($key); 
 	$ci->session->unset_userdata($key);
 	return $msg;
 }
-
 function set_err($msg){
 	set_flash('<div class="alert alert-danger alert-msg" onclick="$(this).fadeOut();">'.$msg.'</div><div class="clearfix"></div>');
 }
-
 function set_success($msg){
 	set_flash('<div class="alert alert-success alert-msg" onclick="$(this).fadeOut();" >'.$msg.'</div><div class="clearfix"></div>');
 }
-
 function pr($arr){
     echo "<pre>"; print_r($arr); echo "</pre>";
 }
-
-
 function dd($arr){
     pr($arr); die ;
 }
-
-
-
 function is_post(){
     return (CI()->input->server('REQUEST_METHOD') == 'POST') ? true : false;
 }
-
 function show_err($cnt,$errs){
     if(empty($errs)){
         return '';
@@ -791,7 +643,6 @@ function show_err($cnt,$errs){
     $resp.="});</script>";
     return $resp;
 }
-
 function tbl_cols($tbl,$is_val=TRUE){
     $CI =CI();
     $tbl=$CI->db->query("describe $tbl")->result_array();
@@ -834,8 +685,6 @@ function send_enquiry(){
     $posted_data['post_date']=date('Y-m-d H:i:s');
     $posted_data['en_url']=@$_SERVER['HTTP_REFERER'];
     $CI->users_model->safe_insert('wl_enquiry',$posted_data);
-
-    
     $subject = utf8_encode('Webpulseindia.com ' . ' - ' . 'Enquiry from '.$CI->admin_info->site_domain);
     $htmlContent = "
         Customer Details:
@@ -845,9 +694,7 @@ function send_enquiry(){
         Email: " . $post['email'] . " <br />
         Location: " . $post['address'] . " <br />
         Message: " . $post['message'];
-
     $emails=array($CI->admin_info->site_email,$CI->admin_info->admin_email,'bittu.wps@gmail.com');
-    
     foreach($emails as $r=>$v){
         $mail_conf = array(
             'subject' => $subject,
@@ -859,7 +706,6 @@ function send_enquiry(){
         $CI->dmailer->mail_notify($mail_conf);
     }
 }
-
 
 function subdomain_name(){
     //Check if it is subdomain
@@ -877,5 +723,22 @@ function subdomain_name(){
         return "Manufacturer in ".ucwords(locationName($st));
     }else{
         return "Manufacturer in Delhi";
+    }
+}
+
+function location_name() {
+    //Check if it is subdomain
+    $CI = CI();
+    $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $uri_segments = explode('/', $uri_path);
+    $st = $uri_segments[1];
+    if (strstr($st, '.html')) {
+        $st = substr($st, 0, -5);
+    }
+    $stArray = $CI->db->query("SELECT meta_id, page_url FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
+    if (is_array($stArray) & !empty($stArray)) {
+        return ucwords(locationName($st));
+    } else {
+        return 'Delhi';
     }
 }
