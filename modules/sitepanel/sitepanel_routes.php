@@ -1,4 +1,4 @@
-<?php
-$route['default_controller'] = "sitepanel";
-
-/* ********************************  End  */
+<?php
+$route['default_controller'] = "sitepanel";
+
+/* ********************************  End  */

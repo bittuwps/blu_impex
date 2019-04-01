@@ -105,7 +105,7 @@ if (is_array($cat_res) && !empty($cat_res)) {
 				</div>
 
 				<div class="more_product">
-					<h4>You May Also Like These: <i class="fa fa-th pull-right"></i></h4>
+					<h4>You May Also Like These: </h4>
 				</div>
 				<div class="row">
 

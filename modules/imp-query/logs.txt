@@ -1,4 +1,4 @@
-insert into wl_meta_tags (`is_fixed`,`entity_type`,`entity_id`,`page_url`,`meta_title`,`meta_description`,`meta_keyword`,`page_heading`) select 'L','home/index',id,temp_title,title,title,title,title from tbl_city where temp_title not in (select page_url from wl_meta_tags) 
-
-
+insert into wl_meta_tags (`is_fixed`,`entity_type`,`entity_id`,`page_url`,`meta_title`,`meta_description`,`meta_keyword`,`page_heading`) select 'L','home/index',id,temp_title,title,title,title,title from tbl_city where temp_title not in (select page_url from wl_meta_tags) 
+
+
 insert into wl_meta_tags (`is_fixed`,`entity_type`,`entity_id`,`page_url`,`meta_title`,`meta_description`,`meta_keyword`,`page_heading`) select 'L','home/index',id,temp_title,title,title,title,title from tbl_city where temp_title not in (select page_url from wl_meta_tags) 

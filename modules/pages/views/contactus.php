@@ -118,7 +118,7 @@ endif;
                         <div class="col-md-12">
                             <div class="single-address">
                                 <h4>Head Quarter</h4>
-                                <div class="icon"><i class="fa fa-map-marker"></i></div>
+                                <div class="cont-icon"><i class="fa fa-map-marker"></i></div>
                                 <ul class="list-unstyled mb-0">
                                     <li>M-11, Street No:-10, Anand Parvat Indls. Area, New Rohtak Road, New
                                         Delhi-110005.</li>
@@ -129,7 +129,7 @@ endif;
                         <div class="col-md-6">
                             <div class="single-address">
                                 <h4>Contact Person</h4>
-                                <div class="icon"><i class="fa fa-user"></i></div>
+                                <div class="cont-icon"><i class="fa fa-user"></i></div>
                                 <ul class="list-unstyled mb-0">
                                     <li>Mr. Ashish Tiwari</li>
                                     <li></li>
@@ -140,7 +140,7 @@ endif;
                         <div class="col-md-6">
                             <div class="single-address">
                                 <h4>Website</h4>
-                                <div class="icon"><i class="fa fa-globe"></i></div>
+                                <div class="cont-icon"><i class="fa fa-globe"></i></div>
                                 <ul class="list-unstyled mb-0">
                                     <li>www.civiltestingequipment.com</li>
                                 </ul>
@@ -150,7 +150,7 @@ endif;
                         <div class="col-md-6">
                             <div class="single-address">
                                 <h4>Contact Number</h4>
-                                <div class="icon"><i class="fa fa-phone"></i></div>
+                                <div class="cont-icon"><i class="fa fa-phone"></i></div>
                                 <ul class="list-unstyled mb-0">
                                     <li>011-28762949</li>
                                     <li>+91 - 9212189333</li>
@@ -163,7 +163,7 @@ endif;
                         <div class="col-md-6">
                             <div class="single-address">
                                 <h4>Working Hour</h4>
-                                <div class="icon"><i class="fa fa-clock-o"></i></div>
+                                <div class="cont-icon"><i class="fa fa-clock-o"></i></div>
                                 <ul class="list-unstyled mb-0">
                                     <li>Monday - Saturday 8am - 6pm </li>
                                     <li>Sunday (Off Day)</li>
