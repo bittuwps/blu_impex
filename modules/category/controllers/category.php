@@ -255,7 +255,7 @@ class Category extends Public_Controller{
         
         //banner
         $data['banner'] = get_db_field_value("wl_banners", "banner_image", "WHERE banner_page='product' AND banner_position='Top Banner' ORDER BY RAND()");
-    
+        
         $this->load->view('products/view_product_listing', $data);
 
     }
