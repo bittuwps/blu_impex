@@ -643,6 +643,14 @@ function show_err($cnt,$errs){
     $resp.="});</script>";
     return $resp;
 }
+
+function str_short($string='',$len=0) {
+	$string=strip_tags($string);	
+	$tmp=substr($string,0,$len);	
+	if(strlen($string)<=$len) {return $string;}	
+	return trim($tmp).((strlen($string)<=$len)?'':'...');
+}
+
 function tbl_cols($tbl,$is_val=TRUE){
     $CI =CI();
     $tbl=$CI->db->query("describe $tbl")->result_array();

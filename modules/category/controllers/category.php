@@ -159,7 +159,6 @@ class Category extends Public_Controller{
 
 
     public function products_listing($category_id){
-
         $this->page_section_ct = 'product';
         $condtion = array();
         $cat_res = '';
@@ -205,16 +204,7 @@ class Category extends Public_Controller{
         $price = $this->input->post('price');
         $catIds = $this->input->post('categoryId');
 
-        if (!empty($color)) {
-            $colors = implode(',', $color);
-            $condtion['color'] = $colors;
-        }
-
-        if (!empty($size)) {
-            $sizes = implode(',', $size);
-            $condtion['size'] = $sizes;
-        }
-
+        
         if (!empty($catIds)) {
             $catIds = implode(',', $catIds);
             $condtion['catIds'] = $catIds;
