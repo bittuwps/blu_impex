@@ -1,302 +1,482 @@
-<?php
-$this->load->view('top_application');
-$fieldType = $this->session->userdata('field_type');
-$mediaRes = $media_res;
-$overall_rating_product = product_overall_rating($res['products_id'], 'product');
-error_message('alert');
-//$sz = explode(',', $res['size_ids']);
-//$cl = explode(',', $res['color_ids']);
-?>
-<link rel="stylesheet" type="text/css" href="<?php echo theme_url(); ?>css/xzoom.css">
-
-
-<div class="inner-img-bg"> 
-  <img src="<?php echo theme_url(); ?>img/slider/inner-bg.jpg" title="Product Details" alt="Product Details">
-  <!--div class="inner-breadcrum">
-    <ul>
-      <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>/
-      <li>Product Details</li>
-    </ul>
-  </div-->
-</div>
-<div class="clearfix"></div>
-<!-- ======inner-pages========-->
-
-<div class="inner-pages-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-md-7"> 
-
-        
-  <div class="details-zoom-product">                    
-<div class="app-figure" id="zoom-fig">
-<a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom Plus." href="<?php echo get_image('product-images', $res['media'], '', '', 'R'); ?>" data-options="zoomWidth:500px; zoomHeight:500px">        
-<img src="<?php echo get_image('product-images', $res['media'], '493', '493', 'R'); ?>?scale.height=400"  alt=""/>
-</a>
-<div class="selectors">
-<?php
-foreach ($mediaRes as $mkey => $mval) {
-?>  
-
-
-<a data-zoom-id="Zoom-1" href="<?php echo get_image('product-images', $mval['media'], '', '', 'R'); ?>" data-image="<?php echo get_image('product-images', $mval['media'], '493', '493', 'R'); ?>?scale.height=400">
-<img srcset="<?php echo get_image('product-images', $mval['media'], '80', '155', 'R'); ?>?scale.width=112 2x" src="<?php echo get_image('product-images', $mval['media'], '80', '155', 'R'); ?>?scale.width=56"/>
-</a>
-
-
- <?php
-}
-?>           
-</div>            
-            
-            
-          </div>        
- 
-        </div> 
-      </div> 
-
-
-      <div class="col-sm-6 col-md-5">
-        <div class="details-right-section">
-          <h1><?php echo $res['product_name']; ?></h1> 
-          <div class="right-s-price">
-           <?php
-         if ($res['product_discounted_price'] > 0) {
-           ?>
-          <b><?php echo display_price($res['product_discounted_price']); ?></b>
-           <strike><?php echo display_price($res['product_price']); ?></strike>
-           <?php
-           $productPriceCart = $res['product_discounted_price'];
-         } else {
-           ?>
-            <span class="price"><?php echo display_price($res['product_price']); ?> </span>
-           <?php
-           $productPriceCart = $res['product_price'];
-         }
-         ?>
-          </div>
-          <?php echo $res['products_description']; ?>
-        </div> 
-        <?php echo form_open(site_url('cart/add_to_cart'), 'id="cart_form"'); ?>
-       
-        <!--div class="quantity-section">
-          <span class="form-title">Color:</span>
-          <div class="attributes">
-            <div class="attribute-list">
-              <select name="color_id" class="color" onchange="$('#color_id').val($(this).val());">
-                <option value="">Select Color</option>
-                <?php
-/*
-                foreach ($cl as $sval) {
-                  $size = $this->db->query("SELECT * FROM wl_colors WHERE color_id = '" . trim($sval) . "'")->row_array();
-                  ?>
-                  <option value="<?php echo $size['color_id']; ?>"><?php echo $size['color_name']; ?></option>
-                  <?php
-                }
-                */
-                ?>
-              </select>
-            </div>
-          </div>
-        </div-->
-        <!--div class="quantity-section">
-          <span class="form-title">Size:</span>
-          <div class="attributes">
-            <div class="attribute-list">
-              <select name="size_id" class="size" onchange="$('#size_id').val($(this).val());">
-                <option value="">Select Size</option>
-                <?php
-/*
-                foreach ($sz as $sval) {
-                  $size = $this->db->query("SELECT * FROM wl_sizes WHERE size_id = '" . trim($sval) . "'")->row_array();
-                  ?>
-                  <option value="<?php echo $size['size_id']; ?>"><?php echo $size['size_name']; ?></option>
-                  <?php
-                }
-                */  
-                ?>
-              </select>
-            </div>
-          </div>
-        </div-->
-        <div class="quantity-section">
-          <span class="form-title">Quantity:</span>
-          <div class="quantity">
-            <input type="button" value="-" id="minus1" class="minus" />
-            <input type="text" name="qty" id="qty" maxlength="1000" value="1" title="Qty" class="input-text qty" />
-            <input type="button" value="+" id="add1" class="plus" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-6">
-            <div class="p-details-cart">
-              <button type="submit" class="btn-primary p10 cartButton"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add TO Cart</button>
-            </div></div>
-
-          <div class="col-sm-6 col-md-6">
-            <div class="p-details-cart">
-              <a href="<?php echo site_url('cart/add_to_wishlist/' . $res['products_id']); ?>" class="btn-primary p10"><i class="fa fa-heart" aria-hidden="true"></i> Add To Wishlist</a>
-            </div></div>
-
-        </div>
-        <div class="dec_2018">
-        <!--<h4>THE STORY</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique voluptatibus nulla sunt possimus facere asperiores inventore explicabo ex, ut quibusdam reiciendis necessitatibus ab voluptates adipisci maiores dolor cupiditate voluptate distinctio?</p>-->
-        </div>
-
-        <div class="social-m-section">
-          <ul>
-            <li>Share :-</li>
-            <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank" ><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-        <input type="hidden" name="color_id" id="color_id" value="" />
-        <input type="hidden" name="size_id" id="size_id" value="" />
-        <input type="hidden" name="product_id" value="<?php echo $res['products_id']; ?>" />
-        <input type="hidden" name="stockValue" class="stockValue" value="<?php echo $res['product_qty']; ?>" />
-        <?php echo form_close(); ?>
-
-      </div>
-    </div>
-  </div>
-  <div class="clearfix"></div>
-  
-      <?php
-  //trace($related);
-  if (is_array($related) && !empty($related)) {
-    ?>
-      
-<div class="trending-products">
-<h2 class="wow fadeInLeft animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">Trending products
-<span></span>
-</h2>
-
-<div class="blog-section wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInDown;"> 
-<div class="container">
-<div class="row">
-  <div class="container">
- <div id="demo">
-          <div class="row">
-            <div class="span12">
-
-              <div id="owl-demo3" class="owl-carousel">
-               
-               <?php
-                      foreach ($related as $r => $new) {
-                        $link_url = base_url($new['friendly_url']);
-                        //$productStock = product_stock($new['products_id']);
-                        ?>
-                <div class="item">
-                 <div class="custom-Trending-box">
-                 <div class="blog-box">
-                  <a href="<?php echo site_url($new['friendly_url']); ?>" title="<?php echo $new['product_name']; ?>">
-                <img class="lazyOwl" data-src="<?php echo get_image('product-images', $new['media'], '267', '267', 'R', $new['friendly_url']); ?>" title="<?php echo $new['product_name']; ?>" alt="<?php echo $new['product_name']; ?>">
-              </a></div>
-                <h3><a href="<?php echo site_url($new['friendly_url']); ?>" title="<?php echo $new['product_name']; ?>"><?php echo $new['product_name']; ?></a></h3>
-                <?php
-                              if ($new['product_discounted_price'] > 0) {
-                                ?>
-                                 <p><i class="fa fa-rupee"></i><b> <?php echo ($new['product_price']); ?></b> <i class="fa fa-rupee"></i><strike> <?php echo ($new['product_discounted_price']); ?></strike></p>
-                        
-                                <?php
-                              } else {
-                                ?>
-                             
-                                                <p><i class="fa fa-rupee"></i> <?php echo display_price($new['product_price']); ?></p>
-                                <?php
-                              }
-                              ?>
-        
-                </div> 
-                </div>
-                
-               <?php
-                  }
-                  ?>
-
-              </div>
-            </div>
-          </div>
-    </div>
- </div>
-</div>  
-</div>
-</div>
-</div>
-        
-            <?php
-  }
-  ?>
-
-</div>
-<?php $this->load->view("bottom_application"); ?>
-
-<link href="<?php echo theme_url(); ?>js/zoom/magiczoomplus.css" rel="stylesheet" type="text/css" />
-<script src="<?php echo theme_url(); ?>js/zoom/magiczoomplus.js" type="text/javascript"></script>
-
-
-
-<!--<script src="<?php echo theme_url(); ?>js/xzoom.min.js"></script>
-<script src="<?php echo theme_url(); ?>js/setup.js"></script>-->
-
-<script type="text/javascript">
-                //Max and Min Quantity
-                var MAX_QTY = $('.stockValue').val();
-                var MIN_QTY = 1;
-                jQuery(".plus").click(function () {
-                  MAX_QTY = $('.stockValue').val();
-                  var currentVal = parseInt(jQuery(this).prev(".qty").val());
-                  if (!currentVal || currentVal == "" || currentVal == "NaN")
-                    currentVal = 0;
-                  if (currentVal < MAX_QTY)
-                    jQuery(this).prev(".qty").val(currentVal + 1);
-                  else
-                    alert('You have reached to maximum available quantity.');
-                });
-                jQuery(".minus").click(function () {
-                  var currentVal = parseInt(jQuery(this).next(".qty").val());
-                  if (currentVal == "NaN")
-                    currentVal = 0;
-                  if (currentVal > MIN_QTY) {
-                    jQuery(this).next(".qty").val(currentVal - 1);
-                  }
-                });
-
-                //Post Review
-                $("#contactReview").submit(function (event) {
-                  event.preventDefault();
-                  var radioValue = $("input[name='rating']:checked").val();
-                  $.post("<?php echo base_url('products/post_review'); ?>", {email: $("#email").val(), name: $("#name").val(), rating: $('#ads_rating').val(), reviews: $("#comment").val(), products_id: '<?php echo $res['products_id']; ?>'}, function (data) {
-                    obj = $.parseJSON(data);
-                    //display message and redirect
-                    if (obj.success == true) {
-                      $(".alert-danger").hide();
-                      $(".alert-success").show();
-                      $("#sucessMsg1").html(obj.message);
-                      $("#contactReview").resetForm();
-                      setTimeout(function () {
-                        $(".alert-danger").hide();
-                        $(".alert-success").hide();
-                      }, 5000);
-                    } else {
-                      $(".alert-success").hide();
-                      $(".alert-danger").show();
-                      $("#errortxt1").html(obj.error);
-                      setTimeout(function () {
-                        $(".alert-danger").hide();
-                        $(".alert-success").hide();
-                      }, 5000);
-                    }
-                  });
-                });
-                //End Here
-
-                
-</script>
-<script>
-var mzOptions = {
-  zoomPosition: "inner"
-};
+<?php
+$this->load->view('top_application');
+$fieldType = $this->session->userdata('field_type');
+$mediaRes = $media_res;
+$overall_rating_product = product_overall_rating($res['products_id'], 'product');
+error_message('alert');
+//$sz = explode(',', $res['size_ids']);
+//$cl = explode(',', $res['color_ids']);
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo theme_url(); ?>css/xzoom.css">
+
+
+<div class="inner-img-bg"> 
+  <img src="<?php echo theme_url(); ?>img/slider/inner-bg.jpg" title="Product Details" alt="Product Details">
+  <!--div class="inner-breadcrum">
+    <ul>
+      <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>/
+      <li>Product Details</li>
+    </ul>
+  </div-->
+</div>
+<div class="clearfix"></div>
+<!-- ======inner-pages========-->
+
+<div class="inner-pages-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-7"> 
+
+        
+  <div class="details-zoom-product">                    
+<div class="app-figure" id="zoom-fig">
+<a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom Plus." href="<?php echo get_image('product-images', $res['media'], '', '', 'R'); ?>" data-options="zoomWidth:500px; zoomHeight:500px">        
+<img src="<?php echo get_image('product-images', $res['media'], '493', '493', 'R'); ?>?scale.height=400"  alt=""/>
+</a>
+<div class="selectors">
+<?php
+foreach ($mediaRes as $mkey => $mval) {
+?>  
+
+
+<a data-zoom-id="Zoom-1" href="<?php echo get_image('product-images', $mval['media'], '', '', 'R'); ?>" data-image="<?php echo get_image('product-images', $mval['media'], '493', '493', 'R'); ?>?scale.height=400">
+<img srcset="<?php echo get_image('product-images', $mval['media'], '80', '155', 'R'); ?>?scale.width=112 2x" src="<?php echo get_image('product-images', $mval['media'], '80', '155', 'R'); ?>?scale.width=56"/>
+</a>
+
+
+ <?php
+}
+?>           
+</div>            
+            
+            
+          </div>        
+ 
+        </div> 
+      </div> 
+
+
+      <div class="col-sm-6 col-md-5">
+          
+          
+       <div class="product-details-content ml-70">
+          <h2>Guitar Floral Wooden Notebook</h2> 
+		  
+          			  <div class="product-details-price">
+				<span class="new">RS. 999.00</span>
+				<span class="old">RS. 1,199.00</span>
+			  </div> 
+          
+          	       <p>Product Code:  
+                <b>CFMWN001</b></p> 
+		       <p>Product Material:   <b>wood , metal , paper</b></p> 
+	 
+	
+	       <p>Paper:         <b>100 gsm , 100% Elemental chlorine free fiber , ISO9001, 14001 AND OHSAS18001 Certified</b></p> 
+		
+	       <p>No of Pages:         <b>60</b></p> 
+		            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <div class="pro-size">
+                  <label>Select Paper</label>
+                  <select name="keyfeature" >
+				    <option value="Ruler">Ruler Pages</option>
+                    <option value="Plan">Plan Pages</option> 
+                  </select>
+                </div>
+              </div>
+
+            </div>
+         
+            <div class="product-quantity">
+              <div class="cart-plus-minus">
+                <input class="cart-plus-minus-box" type="text" name="qty" value="1">
+              </div>
+            </div>
+            <div class="pro-details-cart">
+              <input type="hidden" name="product_id" value="333">
+              <input type="hidden" name="stockValue" class="stockValue" value="0" />
+
+              <button><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+            </div>
+            <div class="pro-details-wishlist">
+              <a href="https://www.craftfortune.com/cart/add_to_wishlist/333"><i class="fa fa-heart-o"></i> Wishlist</a>
+            </div>
+			<br/>
+			<div class="social-m-section">
+			  <div> 
+				<h4 class="heading">Share</h4> 
+                <div class="addthis_inline_share_toolbox"></div>
+            
+					<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ca2e7ad73f83648"></script>
+				 
+			  </div>
+			</div>
+          </div>   
+        </div>
+          
+          
+      
+        
+        
+     
+
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
+
+
+<div class="description-review-area">
+    <div class="container">
+      <div class="description-review-wrapper">
+        <div class="description-review-topbar nav">
+                      <a class="active" style="margin-right: 7px;" data-toggle="tab" href="#des-details2">Description</a>
+                    		  <a class="active" data-toggle="tab" href="#des-details3">Other Details</a> 
+        </div>
+		 
+		
+        <div class="tab-content description-review-bottom">
+          <div id="des-details2" class="tab-pane active">
+            <div class="product-description-wrapper">
+              <ul>
+	<li>No. of Sheets 60 (No. of Pages 120)</li>
+	<li>The Diary Comes with a Beautifull Gift Box.</li>
+</ul>            </div>
+          </div>
+          <div id="des-details3" class="tab-pane">
+            			   <p>Product colour:   <b>Textured Brown , Silver</b></p> 
+																			<p>Notes:         <b>Metal emits light and hampers the photo quality. Actual product looks better than the image</b></p> 
+												   <p>Product Weight:         <b>360.00 gm </b></p> 
+									   <p>HSN Code:         <b>4820</b></p> 
+									   <p>Paper Size:         <b>145 mm x 200 mm</b></p> 
+			          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="related_product">
+  <div class="container">
+    <div class="related_product text-center">
+      <h2>Related Products</h2>
+    </div>
+
+    <div class="row">
+              <div class="col-xl-12 col-md-3 col-lg-3 col-sm-4">
+          <div class="product-wrap" prd-id="374">
+            <div class="product-img">
+              <div class="image23">
+                <a href="moroccan-arch-window-wooden-notebook">
+                  <img class="default-img" src="https://www.craftfortune.com/uploaded-files/thumb-cache/thumb-270-200-12-1XKs5.jpg" alt="Moroccan arch window wooden notebook" title="Moroccan arch window wooden notebook">
+                </a>
+              </div>
+                              <span class="pink">16.68%</span>
+                              <div class="product-action">
+                <div class="pro-same-action pro-wishlist">
+                  <a title="Wishlist" href="https://www.craftfortune.com/cart/add_to_wishlist/374"><i class="fa fa-heart-o"></i></a>
+                </div>
+                <div class="pro-same-action pro-cart">
+                  <a title="Add To Cart" href="javascript:void()" onclick="add_to_cart(this)"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                </div>
+                <div class="pro-same-action pro-quickview">
+                  <a title="Quick View" href="moroccan-arch-window-wooden-notebook"><i class="fa fa-search-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-content text-center">
+              <h3><a href="moroccan-arch-window-wooden-notebook" title="Moroccan arch window wooden notebook">Moroccan arch window wooden&#8230;</a></h3>
+              <!--      <div class="product-rating">
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>-->
+              <div class="product-price">
+                <span>RS. 999.00</span>
+                <span class="old">RS. 1,199.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+                <div class="col-xl-12 col-md-3 col-lg-3 col-sm-4">
+          <div class="product-wrap" prd-id="373">
+            <div class="product-img">
+              <div class="image23">
+                <a href="moroccan-arch-wooden-notebook">
+                  <img class="default-img" src="https://www.craftfortune.com/uploaded-files/thumb-cache/thumb-270-200-10-1ozv7.jpg" alt="Moroccan Arch wooden notebook" title="Moroccan Arch wooden notebook">
+                </a>
+              </div>
+                              <span class="pink">16.68%</span>
+                              <div class="product-action">
+                <div class="pro-same-action pro-wishlist">
+                  <a title="Wishlist" href="https://www.craftfortune.com/cart/add_to_wishlist/373"><i class="fa fa-heart-o"></i></a>
+                </div>
+                <div class="pro-same-action pro-cart">
+                  <a title="Add To Cart" href="javascript:void()" onclick="add_to_cart(this)"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                </div>
+                <div class="pro-same-action pro-quickview">
+                  <a title="Quick View" href="moroccan-arch-wooden-notebook"><i class="fa fa-search-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-content text-center">
+              <h3><a href="moroccan-arch-wooden-notebook" title="Moroccan Arch wooden notebook">Moroccan Arch wooden notebook</a></h3>
+              <!--      <div class="product-rating">
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>-->
+              <div class="product-price">
+                <span>RS. 999.00</span>
+                <span class="old">RS. 1,199.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+                <div class="col-xl-12 col-md-3 col-lg-3 col-sm-4">
+          <div class="product-wrap" prd-id="372">
+            <div class="product-img">
+              <div class="image23">
+                <a href="merry-and-bright-wooden-notebook">
+                  <img class="default-img" src="https://www.craftfortune.com/uploaded-files/thumb-cache/thumb-270-200-15-1YEEV.jpg" alt="Merry and Bright wooden notebook" title="Merry and Bright wooden notebook">
+                </a>
+              </div>
+                              <span class="pink">16.68%</span>
+                              <div class="product-action">
+                <div class="pro-same-action pro-wishlist">
+                  <a title="Wishlist" href="https://www.craftfortune.com/cart/add_to_wishlist/372"><i class="fa fa-heart-o"></i></a>
+                </div>
+                <div class="pro-same-action pro-cart">
+                  <a title="Add To Cart" href="javascript:void()" onclick="add_to_cart(this)"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                </div>
+                <div class="pro-same-action pro-quickview">
+                  <a title="Quick View" href="merry-and-bright-wooden-notebook"><i class="fa fa-search-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-content text-center">
+              <h3><a href="merry-and-bright-wooden-notebook" title="Merry and Bright wooden notebook">Merry and Bright wooden notebook</a></h3>
+              <!--      <div class="product-rating">
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>-->
+              <div class="product-price">
+                <span>RS. 999.00</span>
+                <span class="old">RS. 1,199.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+                <div class="col-xl-12 col-md-3 col-lg-3 col-sm-4">
+          <div class="product-wrap" prd-id="371">
+            <div class="product-img">
+              <div class="image23">
+                <a href="hot-air-baloon-wooden-notebook">
+                  <img class="default-img" src="https://www.craftfortune.com/uploaded-files/thumb-cache/thumb-270-200-37-1X0FJ.jpg" alt="Hot air baloon wooden notebook" title="Hot air baloon wooden notebook">
+                </a>
+              </div>
+                              <span class="pink">16.68%</span>
+                              <div class="product-action">
+                <div class="pro-same-action pro-wishlist">
+                  <a title="Wishlist" href="https://www.craftfortune.com/cart/add_to_wishlist/371"><i class="fa fa-heart-o"></i></a>
+                </div>
+                <div class="pro-same-action pro-cart">
+                  <a title="Add To Cart" href="javascript:void()" onclick="add_to_cart(this)"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                </div>
+                <div class="pro-same-action pro-quickview">
+                  <a title="Quick View" href="hot-air-baloon-wooden-notebook"><i class="fa fa-search-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-content text-center">
+              <h3><a href="hot-air-baloon-wooden-notebook" title="Hot air baloon wooden notebook">Hot air baloon wooden notebook</a></h3>
+              <!--      <div class="product-rating">
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o yellow"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>-->
+              <div class="product-price">
+                <span>RS. 999.00</span>
+                <span class="old">RS. 1,199.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+
+
+
+<?php $this->load->view("bottom_application"); ?>
+
+<link href="<?php echo theme_url(); ?>magiczoomplus/magiczoomplus.css" rel="stylesheet"  />
+<link href="<?php echo theme_url(); ?>magiczoomplus/magiczoomplus-inline.css" rel="stylesheet" />
+<script src="<?php echo theme_url(); ?>magiczoomplus/magiczoomplus.js" ></script>
+
+
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('input.timepicker').timepicker({
+		dynamic: false,
+    dropdown: true,
+    scrollbar: true
+		
+	});
+});
+
+  var CartPlusMinus = $('.cart-plus-minus');
+  CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
+  CartPlusMinus.append('<div class="inc qtybutton">+</div>');
+  $(".qtybutton").on("click", function () {
+    var $button = $(this);
+    var oldValue = $button.parent().find("input").val();
+    oldValue = (oldValue) ? oldValue : 0;
+    if ($button.text() === "+") {
+      var newVal = parseFloat(oldValue) + 1;
+    } else {
+      // Don't allow decrementing below zero
+      if (oldValue > 0) {
+        var newVal = parseFloat(oldValue) - 1;
+      } else {
+        newVal = 1;
+      }
+    }
+    $button.parent().find("input").val(newVal);
+  });
+
+
+  function add_to_cart(btn) {
+    var prd = $(btn).closest('div[prd-id]');
+    var prd_id = $(prd).attr('prd-id');
+    $('#add_to_cat_form').find('[name=product_id]').val(prd_id);
+    $('form#add_to_cat_form').submit();
+  }
+</script>
+<script src="assets/designer/themes/default/js/magiczoomplus.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('input.timepicker').timepicker({
+		dynamic: false,
+    dropdown: true,
+    scrollbar: true
+		
+	});
+});
+
+  var CartPlusMinus = $('.cart-plus-minus');
+  CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
+  CartPlusMinus.append('<div class="inc qtybutton">+</div>');
+  $(".qtybutton").on("click", function () {
+    var $button = $(this);
+    var oldValue = $button.parent().find("input").val();
+    oldValue = (oldValue) ? oldValue : 0;
+    if ($button.text() === "+") {
+      var newVal = parseFloat(oldValue) + 1;
+    } else {
+      // Don't allow decrementing below zero
+      if (oldValue > 0) {
+        var newVal = parseFloat(oldValue) - 1;
+      } else {
+        newVal = 1;
+      }
+    }
+    $button.parent().find("input").val(newVal);
+  });
+
+
+  function add_to_cart(btn) {
+    var prd = $(btn).closest('div[prd-id]');
+    var prd_id = $(prd).attr('prd-id');
+    $('#add_to_cat_form').find('[name=product_id]').val(prd_id);
+    $('form#add_to_cat_form').submit();
+  }
+</script>
+
+<!--<script src="<?php echo theme_url(); ?>js/xzoom.min.js"></script>
+<script src="<?php echo theme_url(); ?>js/setup.js"></script>-->
+
+<script type="text/javascript">
+                //Max and Min Quantity
+                var MAX_QTY = $('.stockValue').val();
+                var MIN_QTY = 1;
+                jQuery(".plus").click(function () {
+                  MAX_QTY = $('.stockValue').val();
+                  var currentVal = parseInt(jQuery(this).prev(".qty").val());
+                  if (!currentVal || currentVal == "" || currentVal == "NaN")
+                    currentVal = 0;
+                  if (currentVal < MAX_QTY)
+                    jQuery(this).prev(".qty").val(currentVal + 1);
+                  else
+                    alert('You have reached to maximum available quantity.');
+                });
+                jQuery(".minus").click(function () {
+                  var currentVal = parseInt(jQuery(this).next(".qty").val());
+                  if (currentVal == "NaN")
+                    currentVal = 0;
+                  if (currentVal > MIN_QTY) {
+                    jQuery(this).next(".qty").val(currentVal - 1);
+                  }
+                });
+
+                //Post Review
+                $("#contactReview").submit(function (event) {
+                  event.preventDefault();
+                  var radioValue = $("input[name='rating']:checked").val();
+                  $.post("<?php echo base_url('products/post_review'); ?>", {email: $("#email").val(), name: $("#name").val(), rating: $('#ads_rating').val(), reviews: $("#comment").val(), products_id: '<?php echo $res['products_id']; ?>'}, function (data) {
+                    obj = $.parseJSON(data);
+                    //display message and redirect
+                    if (obj.success == true) {
+                      $(".alert-danger").hide();
+                      $(".alert-success").show();
+                      $("#sucessMsg1").html(obj.message);
+                      $("#contactReview").resetForm();
+                      setTimeout(function () {
+                        $(".alert-danger").hide();
+                        $(".alert-success").hide();
+                      }, 5000);
+                    } else {
+                      $(".alert-success").hide();
+                      $(".alert-danger").show();
+                      $("#errortxt1").html(obj.error);
+                      setTimeout(function () {
+                        $(".alert-danger").hide();
+                        $(".alert-success").hide();
+                      }, 5000);
+                    }
+                  });
+                });
+                //End Here
+
+                
 </script>
