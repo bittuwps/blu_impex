@@ -67,10 +67,11 @@
 						<?php echo $heading_title;?>
 					</h1>
 					<div class="details-image">
-						<a href="javascript:void()" class="enqs<?php echo $cat_res['category_id'];?>" onclick="$('#catID').val('<?php echo $cat_res['category_id'];?>');
-                      $('.catName').html('<?php echo $cat_res['category_name'];?>');
-            $('.catDesc').html('<?php echo $cat_res['category_shortdescription'];?>');
-            $('.catImg').attr('src',$('.mycatimg_<?php echo $cat_res['category_id'];?> ').attr('src'));"
+						<a href="" class="enqs<?php echo $cat_res['category_id'];?>" onclick="
+							$('#catID').val('<?php echo $cat_res['category_id'];?>');
+							$('.catName').html('<?php echo $cat_res['category_name'];?>');
+							$('.catImg').attr('src',$('.mycatimg_<?php echo $cat_res['category_id'];?> ').attr('src'));
+							$('.catDesc').html(`<?php echo strip_tags($cat_res['category_shortdescription']);?>`);"
 						 data-toggle="modal" data-target="#productID" title="<?php echo $heading_title;?> <?= subdomain_name() ?>">
 							<img src="<?php echo get_image('category', $mainImage, '400', '400', 'R'); ?>" title="<?php echo $heading_title;?> <?= subdomain_name() ?>"
 							 alt="<?php echo $heading_title;?> <?= subdomain_name() ?>" class="img-responsive mycatimg_<?php echo $cat_res['category_id'];?>">
@@ -106,7 +107,10 @@
 													<?php 
 														$modal_data=array('id'=>$r['products_id'], 'name'=>$r['product_name'], 'desc'=>str_short(strip_tags($r['products_description']),250));
 													?>
-												<a href="javascript:;;" class="read_more more_btn enqs<?php echo $r['products_id'];?>" data-target="#productID" title="<?php echo $r['product_name'];?> <?= subdomain_name() ?>" onclick="set_modal_data(<?= json_encode($modal_data) ?>)"
+												<a href="javascript:;;" class="read_more more_btn enqs<?php echo $r['products_id'];?>" data-target="#productID" title="<?php echo $r['product_name'];?> <?= subdomain_name() ?>" onclick="$('#catID').val('<?php echo $r['products_id'];?>');
+							$('.catName').html('<?php echo $r['product_name'];?>');
+							$('.catImg').attr('src',$('.mycatimg_<?php echo $r['products_id'];?> ').attr('src'));
+							$('.catDesc').html(`<?php echo strip_tags($r['products_description']);?>`);"
 													data-toggle="modal" data-target="#productID" >Enquire
 													Now</a>
 											</div>
@@ -122,11 +126,10 @@
 			
 			<script>
 				function set_modal_data(data){
-					console.log(data);
 					$('#catID').val(data.id);
 					$('.catName').html(data.name);
 					$('.catImg').attr('src',$('.mycatimg_'+data.id).attr('src'));
-					$('.catDesc').html(data.desc);
+					$('.catDesc').html(`data.desc`);
 				}
 				
 			</script>
@@ -157,7 +160,7 @@
 										<a class="read_more more_btn enqs<?php echo $result['category_id'];?>" href="javascript:void()" data-toggle="modal"
 										data-target="#productID" title="<?php echo $result['category_name'];?> <?= subdomain_name() ?>" onclick="$('#catID').val('<?php echo $result['category_id'];?>');
 											$('.catName').html('<?php echo $result['category_name'];?>');
-											$('.catDesc').html('<?php echo $result['category_shortdescription'];?>');
+											$('.catDesc').html(`<?php echo $result['category_shortdescription'];?>`);
 											$('.catImg').attr('src',$('.mycatimg_<?php echo $result['category_id'];?> ').attr('src'));"
 										data-toggle="modal" data-target="#productID" title="<?php echo $result['category_name'];?> <?= subdomain_name() ?>">Enquire
 											Now</a>

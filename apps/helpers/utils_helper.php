@@ -651,6 +651,10 @@ function str_short($string='',$len=0) {
 	return trim($tmp).((strlen($string)<=$len)?'':'...');
 }
 
+function h($data) {
+	return htmlspecialchars($data);
+}
+
 function tbl_cols($tbl,$is_val=TRUE){
     $CI =CI();
     $tbl=$CI->db->query("describe $tbl")->result_array();
