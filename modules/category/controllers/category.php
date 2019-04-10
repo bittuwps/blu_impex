@@ -91,8 +91,10 @@ class Category extends Public_Controller{
                 $st = substr($st, 0, -5);
             }
             $stArray = $this->db->query("SELECT page_url FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
+            
             if (is_array($stArray) & !empty($stArray)) {
                 $resprosub = $this->db->query("SELECT * FROM wl_subcontent WHERE status = '1' AND FIND_IN_SET($parent_id,category_id)")->row();
+                
                 if (is_object($resprosub) && !empty($resprosub)) {
                     
                     //With location and category
@@ -219,8 +221,24 @@ class Category extends Public_Controller{
         if ($category_id > 0) {
             $condtion['category_id'] = $category_id;
             $cat_res = get_db_single_row('wl_categories', '*', " category_id='$category_id'");
+
             $page_title = $cat_res['category_name'];
             $category_description = $cat_res['category_description'];
+
+            if(IS_SD){
+                $st=subdomain_url();
+                $key1=''; $key2=''; $key3='';
+                $resprosubloc = $this->db->query("SELECT * FROM wl_subcontent WHERE status = '1' AND FIND_IN_SET($category_id,category_id) AND FIND_IN_SET(".META_ID.",location_id)")->row();
+                if (is_object($resprosubloc) && !empty($resprosubloc)) { //With location and category
+                    $cat_res['category_description']  = str_replace('{catname}', $page_title, str_replace('{location}', ucwords(locationName($st)), str_replace('{key3}', $key3, str_replace('{key2}', $key2, str_replace('{key1}', $key1, $resprosubloc->description)))));
+                    if ($resprosubloc->page_heading != '') {
+                        $page_title = str_replace('{catname}', $page_title, str_replace('{location}', ucwords(locationName($st)), str_replace('{key3}', $key3, str_replace('{key2}', $key2, str_replace('{key1}', $key1, $resprosubloc->page_heading)))));
+                    } else {
+                        $page_title .= ' In ' . ucwords(locationName($st));
+                    }
+                }
+            }
+
             $category_image = $cat_res['category_image'];
             $srtQry = "AND parent_id = '" . $cat_res['parent_id'] . "'";
             $data['catid'] = $category_id;
@@ -255,7 +273,7 @@ class Category extends Public_Controller{
         
         //banner
         $data['banner'] = get_db_field_value("wl_banners", "banner_image", "WHERE banner_page='product' AND banner_position='Top Banner' ORDER BY RAND()");
-        //dd($data);
+        
         $this->load->view('products/view_product_listing', $data);
 
     }

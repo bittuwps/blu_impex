@@ -102,9 +102,10 @@ class MY_Router extends MX_Router {
         if (strstr($st, '.html')) {
             $st = substr($st, 0, -5);
         }
-        $stArray = $d_b->query("SELECT page_url FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
+        $stArray = $d_b->query("SELECT page_url,meta_id FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
         if (!empty($uri_segments[1]) && is_array($stArray) && !empty($stArray)) {
-            //echo "in subdomain"; die ;
+            define('IS_SD',true);
+            define('META_ID',$stArray['meta_id']);
             $uri_aligs_string = str_replace($st, '', $uri_aligs_string);
             $uri_aligs_string = trim($uri_aligs_string, '/');
             $urlSegment = $uri_aligs_string;
@@ -132,6 +133,7 @@ class MY_Router extends MX_Router {
             }
             return $routes;
         } else {
+            define('IS_SD',false);
             $urlSegment = "";
             $uri_aligs_string = str_replace('urastro', '', $uri_aligs_string);
             $uri_aligs_string = trim($uri_aligs_string, '/');
