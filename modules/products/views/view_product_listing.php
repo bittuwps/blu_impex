@@ -174,7 +174,7 @@
 
 							<div class="more_product">
 
-								<h4>Products </h4>
+								<h4 class="white">Products </h4>
 
 							</div>
 
@@ -184,7 +184,7 @@
 									<div class="col-lg-4">
 
 										<div class="product_box_1">
-											<a href="<?php echo site_url($r['friendly_url']); ?>" title="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>">
+											<a href="<?php echo base_url($r['friendly_url']); ?>" title="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>">
 												<div class="image3">
 													<?php $img=$this->db->select('media')->from('wl_products_media')->where(['products_id'=>$r['products_id']])->get()->first_row(); ?>
 													<img src="<?php echo get_image('products', @$img->media, '400', '400', 'R'); ?>" title="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>" alt="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>" class="img-responsive mycatimg_<?php echo $r['products_id'];?>" />
@@ -193,10 +193,10 @@
 
 											<div class="product_describe">
 												<h3>
-													<a href="<?php echo site_url($r['friendly_url']); ?>" title="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>"><?php echo $r['product_name']; ?></a>
+													<a href="<?php echo base_url($r['friendly_url']); ?>" title="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>"><?php echo $r['product_name']; ?></a>
 												</h3>
 
-												<a class="read_more more_btn" href="<?php echo site_url($r['friendly_url']); ?>" title="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>">Read More</a>
+												<a class="read_more more_btn" href="<?php echo base_url($r['friendly_url']); ?>" title="<?php echo $r['product_name']; ?> <?= subdomain_name() ?>">Read More</a>
 												<?php 
 													$modal_data=array('id'=>$r['products_id'], 'name'=>$r['product_name'], 'desc'=>str_short(strip_tags($r['products_description']),250));
 												?>
@@ -243,7 +243,7 @@
 
 				<div class="more_product">
 
-					<h4>You May Also Like These: </h4>
+					<h4 class="white">You May Also Like These: </h4>
 
 				</div>
 

@@ -26,13 +26,13 @@
 				<div class="col-sm-6 col-md-7"> 
 					<div class="details-zoom-product">                    
 						<div class="app-figure" id="zoom-fig">
-							<a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom Plus." href="<?php echo get_image('product-images', $res['media'], '', '', 'R'); ?>" data-options="zoomWidth:500px; zoomHeight:500px">        
-								<img src="<?php echo get_image('product-images', $res['media'], '493', '493', 'R'); ?>?scale.height=400"  alt=""/>
+							<a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom Plus." href="<?php echo get_image('product_images', $res['media'], '', '', 'R'); ?>" data-options="zoomWidth:500px; zoomHeight:500px">        
+								<img src="<?php echo get_image('product_images', $res['media'], '493', '493', 'R'); ?>?scale.height=400"  alt=""/>
 							</a>
 							<div class="selectors">
 								<?php foreach ($mediaRes as $mkey => $mval) { ?>  
-									<a data-zoom-id="Zoom-1" href="<?php echo get_image('product-images', $mval['media'], '', '', 'R'); ?>" data-image="<?php echo get_image('product-images', $mval['media'], '493', '493', 'R'); ?>?scale.height=400">
-										<img srcset="<?php echo get_image('product-images', $mval['media'], '80', '155', 'R'); ?>?scale.width=112 2x" src="<?php echo get_image('product-images', $mval['media'], '80', '155', 'R'); ?>?scale.width=56"/>
+									<a data-zoom-id="Zoom-1" href="<?php echo get_image('product_images', $mval['media'], '', '', 'R'); ?>" data-image="<?php echo get_image('product_images', $mval['media'], '493', '493', 'R'); ?>?scale.height=400">
+										<img srcset="<?php echo get_image('product_images', $mval['media'], '80', '155', 'R'); ?>?scale.width=112 2x" src="<?php echo get_image('product_images', $mval['media'], '80', '155', 'R'); ?>?scale.width=56"/>
 									</a>
 								<?php } ?>           
 							</div>            

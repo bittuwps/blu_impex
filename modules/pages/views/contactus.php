@@ -83,7 +83,7 @@ endif;
                 </div>
                 <div class="clearfix"></div>
                 <div class="cat_title2">
-                    Scientific & Technological Equipment Corporation.
+                    Industrial Machinery Manufacturing Companies.
                 </div>
             </div>
         </div>
@@ -115,23 +115,54 @@ endif;
 
                 <div class="office-addess-inner">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="single-address">
                                 <h4>Head Quarter</h4>
                                 <div class="cont-icon"><i class="fa fa-map-marker"></i></div>
                                 <ul class="list-unstyled mb-0">
-                                    <li>M-11, Street No:-10, Anand Parvat Indls. Area, New Rohtak Road, New
-                                        Delhi-110005.</li>
+                                    <li>O-57, Near Metro Pillar No:230, West Patel Nagar, New Delhi Nearest Metro Station Shadipur</li>
                                 </ul>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="single-address">
+                                <h4>Hyderabad Branch</h4>
+                                <div class="cont-icon"><i class="fa fa-map-marker"></i></div>
+                                <ul class="list-unstyled mb-0">
+                                    <li>Blu Impex, B-16, Laxmi Complex, Erragada, Hyderabad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-address">
+                                <h4>Kolkata Branch</h4>
+                                <div class="cont-icon"><i class="fa fa-map-marker"></i></div>
+                                <ul class="list-unstyled mb-0">
+                                    <li>Blu Impex, 75,Metcafe Street, Ganesh Chandra Avenue, Kolkata</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-address">
+                                <h4>Chennai Branch</h4>
+                                <div class="cont-icon"><i class="fa fa-map-marker"></i></div>
+                                <ul class="list-unstyled mb-0">
+                                    <li>Blu Impex, D-40, Lorry Terminus, Madhavaram, Chennai</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
+                    <hr class="hr" />
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="single-address">
                                 <h4>Contact Person</h4>
                                 <div class="cont-icon"><i class="fa fa-user"></i></div>
                                 <ul class="list-unstyled mb-0">
-                                    <li>Mr. Ashish Tiwari</li>
+                                    <li>S Krishna Mohan Janapa Reddy (Properitor)</li>
                                     <li></li>
                                 </ul>
                             </div>
@@ -142,18 +173,19 @@ endif;
                                 <h4>Website</h4>
                                 <div class="cont-icon"><i class="fa fa-globe"></i></div>
                                 <ul class="list-unstyled mb-0">
-                                    <li>www.civiltestingequipment.com</li>
+                                    <li>www.bluimpex.in</li>
                                 </ul>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="single-address">
                                 <h4>Contact Number</h4>
                                 <div class="cont-icon"><i class="fa fa-phone"></i></div>
                                 <ul class="list-unstyled mb-0">
-                                    <li>011-28762949</li>
-                                    <li>+91 - 9212189333</li>
+                                    <li>09891268568</li>
+                                    <li>09871695957</li>
                                 </ul>
                             </div>
                         </div>
@@ -170,7 +202,7 @@ endif;
                                 </ul>
                             </div>
                         </div>
-
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
@@ -245,8 +277,6 @@ endif;
         </div>
     </div>
 </section>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14003.599164687506!2d77.181948!3d28.662719!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a3320a539e8315c!2sScientific+%26+Technological+Equipment+Corporation!5e0!3m2!1sen!2sin!4v1546864283467"
-    width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.2965618426733!2d77.15743091441801!3d28.65083768241063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03889506a223%3A0x4ca66b5a5be67c7b!2sBlu+Impex+%7C+Pen+making+machine+Delhi+%7C+Noodle+making+machine!5e0!3m2!1sen!2sin!4v1554877498198!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 <!-- ============================================================= FOOTER ============================================================= -->
 <?php $this->load->view('bottom_application');?>

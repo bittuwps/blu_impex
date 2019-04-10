@@ -3844,3 +3844,12 @@ h5 {
     -ms-transform: translateY(0);
     transform: translateY(0);
 }
+
+.hr {
+	margin-top: 5px !important;
+	margin-bottom: 15px !important;
+}
+
+.white {
+	color: #fff !important;
+}

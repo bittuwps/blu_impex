@@ -89,6 +89,8 @@ $res_subb = $this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND
 ?>
 									<li <?php if (cur_url() == 'about-us') {echo 'class="active"';}?>><a href="<?= site_url().'about-us' ?>" title="About Us">
 											About Us</a></li>
+									<li <?php if (cur_url() == 'videos') {echo 'class="active"';}?>><a href="<?= base_url('videos') ?>" title="Videos">
+											Videos</a></li>
 									<!--<li <?php if (cur_url() == 'our-achievements') {echo 'class="active"';}?>><a href="<?php echo site_url(); ?>our-achievements.html" title="Our Achievements">Our Achievements</a></li>-->
 									<li <?php if (cur_url() == 'blog') {echo 'class="active"';}?>><a href="<?= site_url().'blog' ?>" title="Blogs">Blogs</a></li>
 									<li <?php if (cur_url() == 'contact-us') {echo 'class="active"';}?>><a href="<?= site_url().'contact-us' ?>" title="Contact Us">Contact
