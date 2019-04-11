@@ -12,9 +12,6 @@
 					<?php echo $content['page_name']; ?>
 				</div>
 				<div class="clearfix"></div>
-				<div class="cat_title2">
-					Industrial Machinery Manufacturing Companies.
-				</div>
 			</div>
 		</div>
 	</div>
@@ -108,7 +105,7 @@
 
 										<td>Year of Establishment</td>
 
-										<td><span>0000</span></td>
+										<td><span>2016</span></td>
 
 									</tr>
 
@@ -118,7 +115,7 @@
 
 										<td>Experience</td>
 
-										<td>-----</td>
+										<td>More than 13 years</td>
 
 									</tr>
 
@@ -138,27 +135,7 @@
 
 										<td>Turnover</td>
 
-										<td>-----------</td>
-
-									</tr>
-
-									<tr>
-
-										<td>7</td>
-
-										<td>Email Id</td>
-
-										<td><span>bluimpex@hotmail.com</span></td>
-
-									</tr>
-
-									<tr>
-
-										<td>8</td>
-
-										<td>GST No</td>
-
-										<td><span>-----</span></td>
+										<td>3-4 Crores</td>
 
 									</tr>
 

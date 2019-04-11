@@ -82,9 +82,6 @@ endif;
                     <?php echo $title; ?>
                 </div>
                 <div class="clearfix"></div>
-                <div class="cat_title2">
-                    Industrial Machinery Manufacturing Companies.
-                </div>
             </div>
         </div>
     </div>
@@ -108,7 +105,7 @@ endif;
         <div class="row align-items-center">
             <div class="col-md-7 col-lg-7">
                 <div class="office-ifno-inner">
-                    <h3>Scientific & Technological Equipment Corp</h3>
+                    <h3>Blu Impex</h3>
                     <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem accusantium rem voluptatem explicabo praesentium modi! Magni architecto rem amet voluptatem voluptas debitis quos explicabo, illum ratione laudantium, eveniet quia quo.</p>-->
                 </div>
 
@@ -177,32 +174,6 @@ endif;
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="single-address">
-                                <h4>Contact Number</h4>
-                                <div class="cont-icon"><i class="fa fa-phone"></i></div>
-                                <ul class="list-unstyled mb-0">
-                                    <li>09891268568</li>
-                                    <li>09871695957</li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-md-6">
-                            <div class="single-address">
-                                <h4>Working Hour</h4>
-                                <div class="cont-icon"><i class="fa fa-clock-o"></i></div>
-                                <ul class="list-unstyled mb-0">
-                                    <li>Monday - Saturday 8am - 6pm </li>
-                                    <li>Sunday (Off Day)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
