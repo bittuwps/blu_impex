@@ -41,7 +41,7 @@
 					<div class="inner-column">
 						<div class="sec-title">
 							<div class="title">Welcome to</div>
-							<h2><span class="theme_color">Blue</span> Impex</h2>
+							<h2><span class="theme_color">Blu</span> Impex</h2>
 
 						</div>
 
@@ -83,7 +83,7 @@
 
 										<td>1</td>
 
-										<td>Properitor</td>
+										<td>Proprietor</td>
 
 										<td><span>S Krishna Mohan Janapa Reddy</span></td>
 
@@ -95,7 +95,7 @@
 
 										<td>Company Name</td>
 
-										<td><span>Blue Impex</span></td>
+										<td><span>Blu Impex</span></td>
 
 									</tr>
 

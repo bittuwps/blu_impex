@@ -95,11 +95,7 @@ endif;
                                 <h4>About <span>Us</span></h4>
                             </div>
                             <div class="wi-content">
-                                <p>
-                                    <?= $this->admin_info->site_name ?>, was formed in 1997 and since then we have been
-                                    engaged in Distributing, Wholesaling, Supplying as well as Retailing of Veljan
-                                    Denison manufactured Hydraulic Vane Pumps, Directional Control Valves and
-                                    Replacement Cart Kits.</p>
+                                <p><span style="background-color:transparent; color:#fff; font-size:12pt">Blu Impex was established in the year 2016. We use the best quality of materials and modern equipment that makes use of the latest technology. This ensures that our equipment, whether </span>Automatic Pasta Making Machine<span style="background-color:transparent; color:#fff; font-size:12pt"> or </span>Direct Filling Pen Making Machine<span style="background-color:transparent; color:#fff; font-size:12pt"> are the best in the industry.</span></p>
                                 <a class="read_btn fbtn" href="<?= base_url().'about-us' ?>" title="Read More">Read More</a>
                             </div>
                         </div>

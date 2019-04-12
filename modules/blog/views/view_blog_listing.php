@@ -42,37 +42,21 @@
 
 
 <section class="breadcrumb_section hidden-xs">
-
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-lg-12">
-
 				<ul class="breadcrumb">
-
 					<li>
-
 						<a href="<?php echo site_url(); ?>" title="Return to Home">
-
 							<?php echo ($this->session->userdata('lang') == 'p')?$this->lang->line('home'):'Home';?>
-
 						</a>
-
 					</li>
-
 					<li class='active'>
-
 						<?php echo ($this->session->userdata('lang') == 'p')?$this->lang->line('blog'):'Blog';?>
-
 					</li>
-
 				</ul>
-
 			</div>
-
 		</div>
-
 	</div>
 
 </section>

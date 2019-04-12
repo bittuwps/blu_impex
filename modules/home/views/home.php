@@ -186,7 +186,7 @@
 							<p><span style="font-weight: 400; font-size: 11pt;">We have stabilized ourselves as an outstanding name in the sphere of modern process technologies equipment &amp; plant. In order to keep pace with modern technology and the fast-moving tech world, we have strengthened our work strategies and have brought the best machines in the vast Indian and overseas markets. </span></p>
 							<p><span style="font-size: 11pt;"><strong>Machines, Manufactured by Trained Professionals</strong></span></p>
 							<p><span style="font-weight: 400; font-size: 11pt;">The offered products are manufactured by our trained professionals using high-quality raw materials and advanced technology in line with set industry standards. These products are known for their features like perfect finish, low maintenance, easy to operate, excellent functionality, and long working life. </span></p>
-							<p><span style="font-size: 11pt;"><strong>Available in Umtpeen Choices</strong></span></p>
+							<p><span style="font-size: 11pt;"><strong>Available in Umpteen Choices</strong></span></p>
 							<p><span style="font-weight: 400; font-size: 11pt;">The machines are available in a myriad of specifications from which our clients can choose as per their requirements. Our offered products are stringently checked by our quality connoisseurs against different quality parameters. The entire work is supervised by our team members who have rich knowledge and wide exposure in the domain.</span></p>
 
 						</div>
@@ -254,41 +254,41 @@
 		<div class="row">
 			<div class="col-12 wow fadeInLeft animated" data-wow-delay=".1s">
 				<div class="title text-center">
-					<h2>Our <span>Product's Videos</span></h2>
+					<h2>Our Product's<span> Videos</span></h2>
 				</div>
 			</div>
-
+						
 			<div class="col-12">
 
-				<div id="service_item">
+				<div id="our_videos">
 					<?php 
-					$videos = $this->db->select('*')->from('wl_videos')->where(['status'=>'1'])->limit(12)->get()->result_array();
-					foreach ($videos as $r)
-					{?>
-					<div class="item wow fadeInDown animated col-md-3 p-0" data-wow-delay=".2s">
-						<div class="product-box common-cart-box">
-							<div class="product-img common-cart-img">
-								<div class="image13">
-									<iframe width="100%" height="250px"
-										src="<?= $r['link'] ?>">
-									</iframe>
+						$videos = $this->db->select('*')->from('wl_videos')->where(['status'=>'1'])->limit(12)->get()->result_array();
+						foreach ($videos as $r){ 
+							?>
+								<div class="item wow fadeInDown animated p-0" data-wow-delay=".2s">
+									<div class="product-box common-cart-box">
+										<div class="product-img common-cart-img">
+											<div class="image13">
+												<iframe width="100%" height="250px"
+													src="<?= $r['link'] ?>">
+												</iframe>
+											</div>
+
+										</div>
+
+										<div class="product-info common-cart-info text-center">
+											<h2><a class="cart-name" href="<?= base_url() ?>" title="<?php echo $r['title'];?>">
+													<?php echo $r['title'];?> </a></h2>
+
+											<a class="read_btn" href="<?= base_url('videos') ?>" title="<?php echo $r['title'];?>">View
+												More</a>
+										</div>
+									</div>
 								</div>
 
-							</div>
-
-							<div class="product-info common-cart-info text-center">
-								<h2><a class="cart-name" href="<?= base_url() ?>" title="<?php echo $r['title'];?>">
-										<?php echo $r['title'];?> </a></h2>
-
-								<a class="read_btn" href="<?= base_url('videos') ?>" title="<?php echo $r['title'];?>">View
-									More</a>
-							</div>
-						</div>
-					</div>
-
-
-
-					<?php }?>
+							<?php 
+						}
+					?>
 
 				</div>
 			</div>
