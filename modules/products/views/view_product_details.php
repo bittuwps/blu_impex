@@ -20,7 +20,7 @@
 	<div class="clearfix"></div>
 	<!-- ======inner-pages========-->
 
-	<div class="inner-pages-section" style="margin-top: 20px;">
+	<div class="inner-pages-section" style="margin: 20px 0;">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-7"> 
@@ -74,7 +74,7 @@
 		</div>
 	</div>
 	<div class="clearfix"></div>
-
+<?php if($related){ ?>
 <div class="related_product">
   	<div class="container">
 		<div class="related_product text-center">
@@ -121,7 +121,7 @@
   	</div>
 </div>
   
-
+<?php } ?>
 
 
 <?php $this->load->view("bottom_application"); ?>

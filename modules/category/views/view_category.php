@@ -42,15 +42,15 @@
 							onclick="
 								$('#catID').val('<?php echo $maincat[0]['category_id'];?>');
                       			$('.catName').html('<?php echo $maincat[0]['category_name'];?>');
-            					$('.catDesc').html('<?php echo $maincat[0]['category_shortdescription'];?>');
+            					$('.catDesc').html(`<?php echo strip_tags($maincat[0]['category_shortdescription']);?>`);
             					$('.catImg').attr('src',$('.mycatimg_<?php echo $maincat[0]['category_id'];?> ').attr('src'));"
 						>
 							<?php if($maincat[0]['category_id']=='1') { ?>
 								
-								<img src="<?php echo get_image('category', $maincat[0]['category_image'], '400', '400', 'R'); ?>" alt="<?php echo $heading_title.subdomain_name(); ?>"
-									title="<?php echo $heading_title.subdomain_name(); ?>" class="img-responsive mycatimg_<?php echo $maincat[0]['category_id'];?>">
+								<img src="<?php echo get_image('category', $maincat[0]['category_image'], '400', '400', 'R'); ?>" alt="<?php echo img_alt($heading_title); ?>"
+									title="<?php echo img_alt($heading_title); ?>" class="img-responsive mycatimg_<?php echo $maincat[0]['category_id'];?>">
 							<?php } else {?>
-								<img src="<?php echo get_image('category', $maincat[0]['category_image'], '400', '400', 'R'); ?>" alt="<?php echo $heading_title.subdomain_name(); ?> <?= subdomain_name() ?>" title="<?php echo $heading_title;?> <?= subdomain_name() ?>" class="img-responsive mycatimg_<?php echo $maincat[0]['category_id'];?>">
+								<img src="<?php echo get_image('category', $maincat[0]['category_image'], '400', '400', 'R'); ?>" alt="<?php echo img_alt($heading_title); ?>" title="<?php echo img_alt($heading_title);?>" class="img-responsive mycatimg_<?php echo $maincat[0]['category_id'];?>">
 							<?php }?>
 
 							<button class="details_en">Enquire Now</button>
@@ -67,15 +67,15 @@
 									<div class="product">
 										<a href="<?php echo site_url($lval['friendly_url']); ?>" title="">
 											<div class="image1">
-												<img src="<?php echo get_image('category', $lval['category_image'], '360', '328', 'R'); ?>" title="<?php echo $lval['category_name'].subdomain_name(); ?>"
-												alt="<?php echo $lval['category_name']; ?> <?= subdomain_name() ?>" class="img-responsive mycatimg_<?php echo $lval['category_id'];?>">
+												<img src="<?php echo get_image('category', $lval['category_image'], '360', '328', 'R'); ?>" title="<?php echo img_alt($lval['category_name']) ?>"
+												alt="<?php echo img_alt($lval['category_name']); ?>" class="img-responsive mycatimg_<?php echo $lval['category_id'];?>">
 											</div>
 										</a>
 									</div>
 								</div>
 								<div class="col-sm-8 col-xs-12">
 									<div class="right-content">
-										<h3><a href="<?php echo site_url($lval['friendly_url']); ?>" title="<?php echo $lval['category_name']; ?>">
+										<h3><a href="<?php echo site_url($lval['friendly_url']); ?>" title="<?php echo img_alt($lval['category_name']); ?>">
 												<?php echo $lval['category_name']; ?></a></h3>
 										<div class="blue-line1"></div>
 										<p>

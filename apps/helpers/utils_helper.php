@@ -738,6 +738,24 @@ function subdomain_name(){
     }
 }
 
+function img_alt($nm){
+    //Check if it is subdomain
+    $CI=CI();
+    $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $uri_segments = explode('/', $uri_path);
+    $st = $uri_segments[1];
+    if (strstr($st, '.html')) {
+        $st = substr($st, 0, -5);
+    }
+    $stArray = $CI->db->query("SELECT meta_id, page_url FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
+    $loc=ucwords(locationName($st));
+    if (is_array($stArray) & !empty($stArray)) {
+        return "$nm Manufacturers in $loc, $nm Suppliers in $loc";
+    }else{
+        return "$nm Manufacturers in Delhi, $nm Suppliers in Delhi";
+    }
+}
+
 function location_name() {
     //Check if it is subdomain
     $CI = CI();

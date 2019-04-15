@@ -60,7 +60,7 @@
 										if (is_array($res) && !empty($res)) {
 											foreach ($res as $val) {
 												?>
-									<li <?php if ($this->router->fetch_class() == 'category') {echo 'class="active"';}?> class="cs-submenu"><a href="javascript:;;"
+									<li <?php if ($this->router->fetch_class() == 'category') {echo 'class="active"';}?> class="cs-submenu"><a href="<?= site_url($val['friendly_url']) ?>"
 										 title="<?php echo $val['category_name']; ?>">
 											<?php echo $val['category_name']; ?></a>
 										<ul class="cs-dropdown">
@@ -68,13 +68,13 @@
 $res_sub = $this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND parent_id = '" . $val['category_id'] . "' ORDER BY sort_order")->result_array();
         foreach ($res_sub as $sval) {?>
 											<li class="cs-submenu"><a href="<?= site_url($sval['friendly_url']) ?>" title="<?php echo $sval['category_name']; ?>">
-													<?php echo $sval['category_name']; ?> <i class="fa fa-angle-right hidden-xs hidden-sm"></i></a>
+													<?php echo $sval['category_name']; ?> <!-- <i class="fa fa-angle-right hidden-xs hidden-sm"></i> --> </a>
 												<ul class="cs-dropdown">
 													<?php
 $res_subb = $this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND parent_id = '" . $sval['category_id'] . "' ORDER BY sort_order")->result_array();
             foreach ($res_subb as $ssval) {?>
 													<li><a href="<?= site_url($ssval['friendly_url']) ?>">
-															<?php echo $ssval['category_name']; ?></a></li>
+															<?php echo $ssval['category_name']; ?>  </a></li>
 													<?php }?>
 												</ul>
 											</li>
@@ -82,7 +82,7 @@ $res_subb = $this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND
 										</ul>
 									</li>
 									<?php
-}
+	}
 }
 ?>
 									<li <?php if (cur_url() == 'about-us') {echo 'class="active"';}?>><a href="<?= site_url().'about-us' ?>" title="About Us">

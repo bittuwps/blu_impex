@@ -91,17 +91,18 @@ class MY_Router extends MX_Router {
 
         $uri_aligs_string = trim($path, '/');
         $uri_aligs_string = str_replace('blu-impex', '', $path);
-        if (strstr($uri_aligs_string, '.html')) {
+        /* if (strstr($uri_aligs_string, '.html')) {
             $uri_aligs_string = substr($uri_aligs_string, 0, -5);
-        }
+        } */
 
         //Check if it is subdomain
         $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $uri_segments = explode('/', $uri_path);
         $st = $uri_segments[1];
-        if (strstr($st, '.html')) {
+        $sub_domain_name=$st;
+        /* if (strstr($st, '.html')) {
             $st = substr($st, 0, -5);
-        }
+        } */
         $stArray = $d_b->query("SELECT page_url,meta_id FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
         if (!empty($uri_segments[1]) && is_array($stArray) && !empty($stArray)) {
             define('IS_SD',true);

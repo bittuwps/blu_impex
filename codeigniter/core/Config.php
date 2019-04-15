@@ -239,7 +239,7 @@ class CI_Config
         }
     }
 
-    public function site_url($uri = '')
+    public function site_url($uri = '', $show_ext=NULL)
     {
         $user = $this->item('db_username');
         $pass = $this->item('db_password');
@@ -267,12 +267,15 @@ class CI_Config
             }
         }
 
-        if ($uri == '') {
+        if ($uri == '') { 
             return $this->slash_item('base_url') . $this->item('index_page');
         }
 
+        
+
         if ($this->item('enable_query_strings') == false) {
-            $suffix = ($this->item('url_suffix') == false) ? '' : $this->item('url_suffix');
+            $suffix = ''; // ($this->item('url_suffix') == false) ? '' : $this->item('url_suffix');
+           
             return $this->slash_item('base_url') . $subdomainuri . $this->slash_item('index_page') . $this->_uri_string($uri) . $suffix;
         } else {
             return $this->slash_item('base_url') . $subdomainuri . $this->item('index_page') . '?' . $this->_uri_string($uri);

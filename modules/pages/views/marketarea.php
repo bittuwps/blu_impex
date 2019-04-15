@@ -1,4 +1,4 @@
-<?php
+<?php 
 	$this->load->view('top_application');
 	$cat_res = $this->db->query("SELECT *, ( SELECT COUNT(category_id) FROM wl_categories AS b WHERE b.parent_id=a.category_id ) AS total_subcategories FROM (`wl_categories` as a) WHERE `status` !='2' AND parent_id = '0' AND status='1' ORDER BY `sort_order` asc LIMIT 15 ")->result_array();
 ?>
@@ -34,7 +34,7 @@
 					foreach ($state as $rows) {
 						?>
 							<li>
-								<a href="<?php echo site_url($rows['temp_title']); ?>">
+								<a href="<?php echo site_url($rows['temp_title']); ?>.html">
 								<?php echo $rows['title']; ?></a>
 							</li>
 						<?php
@@ -46,7 +46,7 @@
 						$city = $this->db->query("SELECT id, state_id, title, temp_title, status FROM tbl_city WHERE status ='1' AND state_id = '" . $rows['id'] . "'")->result_array();
 						foreach ($city as $rows_city) {
 							?>
-								<li><a href="<?php echo site_url($rows_city['temp_title']); ?>">
+								<li><a href="<?php echo site_url($rows_city['temp_title'], true); ?>.html">
 								<?php echo $rows_city['title']; ?></a></li>
 							<?php
 						}

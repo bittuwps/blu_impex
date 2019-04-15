@@ -27,9 +27,9 @@ $config['controller_name'] = array(
 $config['seo_url_length'] = 200;
 
 
-$config['default_meta'] = array('meta_title' => 'Scientific & Technological Equipment Corporation',
-    'meta_keyword' => 'Scientific & Technological Equipment Corporation',
-    'meta_description' => 'Scientific & Technological Equipment Corporation'
+$config['default_meta'] = array('meta_title' => 'Industrial Machinery Manufacturer,Supplier,Exporter Delhi For Food, Paper, Art & Handicraft industry',
+    'meta_keyword' => 'Blue Impex is a leading Manufacturer, Supplier and Exporter of Industrial Machinery in Delhi, India. Call +91 9891268568, Industrial Machinery for Food, Paper, Art & Handicraft industry.',
+    'meta_description' => 'industrial machinery manufacturers in delhi, industrial machinery supplier in delhi, industrial machinery exporter in delhi, industrial machinery manufacturing companies delhi'
 );
 
 
