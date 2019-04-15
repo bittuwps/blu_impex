@@ -83,10 +83,10 @@ $db['testing']['char_set'] = 'utf8';
 $db['testing']['dbcollat'] = 'utf8_unicode_ci';
 $db['testing']['port'] = 3306;
 // Live
-$db['live']['hostname'] = 'webpulse.co';
-$db['live']['username'] = 'webpus1_bluimpex';
-$db['live']['password'] = 'CvrK]@}B-eBT';
-$db['live']['database'] = 'webpus1_bluimpexDB';
+$db['live']['hostname'] = 'blu-impex.com';
+$db['live']['username'] = 'bluimpex_user';
+$db['live']['password'] = '50_Cv)$;9u)f';
+$db['live']['database'] = 'bluimpex_DB';
 $db['live']['dbdriver'] = 'mysql';
 $db['live']['dbprefix'] = '';
 $db['live']['stricton'] = false;

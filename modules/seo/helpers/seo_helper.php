@@ -88,7 +88,7 @@ if (!function_exists('getMeta')) {
 
         $stArray = $ci->db->query("SELECT page_url, keyword_1, keyword_2, keyword_3 FROM wl_meta_tags WHERE is_fixed='L' AND page_url='" . $st . "'")->row_array();
         $locName = locationName($st);
-
+        
         if (is_array($stArray) & !empty($stArray)) {
             $uri_page = $ci->uri->uri_string != '' ? $ci->uri->uri_string : "home";
             $uri_page = str_replace($uri_segments[1], '', $uri_page);
@@ -98,7 +98,7 @@ if (!function_exists('getMeta')) {
             $urlSegment = $uri_page;
 
             $res = $ci->db->query("SELECT * FROM wl_meta_tags WHERE page_url='" . $st . "' ")->row();
-
+            
             $location = $uri_page;
 
             $key1 = $stArray['keyword_1'];
@@ -116,9 +116,9 @@ if (!function_exists('getMeta')) {
                 //get url Id
 
                 $respro = $ci->db->query("SELECT * FROM wl_meta_tags WHERE page_url='" . $uri_aligs_string_product . "' ")->row();
-
+                
                 if (is_object($respro) && !empty($respro)) {
-
+                    
                     $resprosub = $ci->db->query("SELECT * FROM wl_subcontent WHERE status = '1' AND FIND_IN_SET($respro->entity_id,category_id)")->row();
 
                     if (is_object($resprosub) && !empty($resprosub)) {
@@ -172,27 +172,19 @@ if (!function_exists('getMeta')) {
                             $key3 = $resprosub->meta_key3;
 
                             return array(
-
                                 "meta_title" => str_replace('{catname}', $catName, str_replace('{location}', $locName, str_replace('{key3}', $key3, str_replace('{key2}', $key2, str_replace('{key1}', $key1, $resprosub->meta_title))))),
-
                                 "meta_keyword" => str_replace('{catname}', $catName, str_replace('{location}', $locName, str_replace('{key3}', $key3, str_replace('{key2}', $key2, str_replace('{key1}', $key1, $resprosub->meta_keyword))))),
-
                                 "meta_description" => str_replace('{catname}', $catName, str_replace('{location}', $locName, str_replace('{key3}', $key3, str_replace('{key2}', $key2, str_replace('{key1}', $key1, $resprosub->meta_description))))),
-
                                 "entity_type" => $respro->entity_type,
-
                                 "entity_id" => $respro->entity_id,
-
                                 "page_url" => $respro->page_url,
-
                             );
 
                         }
 
                     } else {
-
                         $resprosubloc = $ci->db->query("SELECT * FROM wl_subloccontent WHERE status = '1' AND FIND_IN_SET($respro->meta_id,location_id)")->row();
-
+                        //last_qry(FALSE);
                         if (is_object($resprosubloc) && !empty($resprosubloc)) {
 
                             $key1 = $resprosubloc->meta_key1;
@@ -256,7 +248,7 @@ if (!function_exists('getMeta')) {
                 } else {
 
                     $resprosubloc = $ci->db->query("SELECT * FROM wl_subloccontent WHERE status = '1' AND FIND_IN_SET($res->meta_id,location_id)")->row();
-
+                    
                     if (is_object($resprosubloc) && !empty($resprosubloc)) {
 
                         //pr($resprosubloc);

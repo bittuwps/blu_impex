@@ -761,3 +761,18 @@ function subdomain_url(){
     $st = $uri_segments[1];
     return str_replace('.html','',$st);
 }
+
+if (!function_exists('curl')) {
+    function curl($url, $data=null) {
+    	$ch = curl_init();
+    	curl_setopt($ch, CURLOPT_URL, $url);
+    	curl_setopt($ch, CURLOPT_HEADER, 0);
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    	curl_setopt($ch, CURLOPT_POST, true); 
+    	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    	$output = curl_exec($ch);
+    	//$info = curl_getinfo($ch);
+    	curl_close($ch);
+    	return $output;
+    }
+}

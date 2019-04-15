@@ -8,7 +8,8 @@ if (!defined('BASEPATH'))
 
 date_default_timezone_set('Africa/Harare');
 
-
+define('Captcha_secret_key','6Lch4J0UAAAAALjAma8OpmuVvQeloj8wVe4yrv5E');
+define('Captcha_site_key','6Lch4J0UAAAAAN_Bt3D9DnBg_JS-1LSYnSa4vjMC');
 
 $config['bottom.debug'] = 0;
 

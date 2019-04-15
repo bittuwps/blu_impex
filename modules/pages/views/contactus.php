@@ -9,9 +9,9 @@ if ($this->agent->is_referral()) {
 if (isset($_POST['submitt'])):
     if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])):
         //your site secret key
-        $secret = '6Ld6kyMUAAAAAAalCQJwBUo9X2SIRs6jVIkYKg2A';
+        $secret = Captcha_secret_key;
         //get verify response data
-        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+        $verifyResponse = curl('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
         $responseData = json_decode($verifyResponse);
         $name = !empty($_POST['name']) ? $_POST['name'] : '';
         $email = !empty($_POST['email']) ? $_POST['email'] : '';
@@ -231,7 +231,7 @@ endif;
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group" style="margin-bottom:0">
-                                <div class="g-recaptcha" tabindex="6" data-sitekey="6Ld6kyMUAAAAAGGDDCH1wyrn7E1__Rj6_ORCaK2k"
+                                <div class="g-recaptcha" tabindex="6" data-sitekey="<?= Captcha_site_key ?>"
                                     style="transform:scale(0.80);-webkit-transform:scale(0.82);transform-origin:0 0;-webkit-transform-origin:0 0"
                                     tabindex="7"></div>
                             </div>

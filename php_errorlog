@@ -1,3 +1,31 @@
 [07-Mar-2019 23:41:14 CST6CDT] PHP Fatal error:  Class 'CI_Controller' not found in /home/webpus1/public_html/blu-impex/codeigniter/core/CodeIgniter.php on line 233
 [07-Mar-2019 23:43:21 CST6CDT] PHP Fatal error:  Class 'CI_Controller' not found in /home/webpus1/public_html/blu-impex/codeigniter/core/CodeIgniter.php on line 233
 [07-Mar-2019 23:43:24 CST6CDT] PHP Fatal error:  Class 'CI_Controller' not found in /home/webpus1/public_html/blu-impex/codeigniter/core/CodeIgniter.php on line 233
+[11-Mar-2019 15:04:13 Africa/Harare] PHP Fatal error:  Call to undefined function get_validation_errors() in /home/webpus1/public_html/blu-impex/modules/sitepanel/controllers/blog.php on line 258
+[11-Mar-2019 15:04:26 Africa/Harare] PHP Fatal error:  Call to undefined function form_validation_errors() in /home/webpus1/public_html/blu-impex/modules/sitepanel/controllers/blog.php on line 258
+[01-Apr-2019 06:50:54 Africa/Harare] PHP Fatal error:  Call to undefined function location_name() in /home/webpus1/public_html/blu-impex/modules/seo/helpers/seo_helper.php on line 181
+[01-Apr-2019 07:32:33 Africa/Harare] PHP Fatal error:  Call to undefined function get_nested_dropdown_menu_sub() in /home/webpus1/public_html/blu-impex/modules/sitepanel/views/subcontent/edit_subcontent.php on line 19
+[01-Apr-2019 07:34:48 Africa/Harare] PHP Fatal error:  Call to undefined function get_nested_dropdown_menu_sub() in /home/webpus1/public_html/blu-impex/modules/sitepanel/views/subcontent/edit_subcontent.php on line 19
+[01-Apr-2019 07:36:10 Africa/Harare] PHP Fatal error:  Call to undefined function get_nested_dropdown_menu_sub() in /home/webpus1/public_html/blu-impex/modules/sitepanel/views/subcontent/edit_subcontent.php on line 19
+[01-Apr-2019 07:36:14 Africa/Harare] PHP Fatal error:  Call to undefined function get_nested_dropdown_menu_sub() in /home/webpus1/public_html/blu-impex/modules/sitepanel/views/subcontent/edit_subcontent.php on line 19
+[01-Apr-2019 07:36:41 Africa/Harare] PHP Fatal error:  Call to undefined function get_nested_dropdown_menu_sub() in /home/webpus1/public_html/blu-impex/modules/sitepanel/views/subcontent/edit_subcontent.php on line 19
+[01-Apr-2019 07:36:45 Africa/Harare] PHP Fatal error:  Call to undefined function get_nested_dropdown_menu_sub() in /home/webpus1/public_html/blu-impex/modules/sitepanel/views/subcontent/edit_subcontent.php on line 19
+[06-Apr-2019 07:23:49 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101859328 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:24:33 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101990400 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:24:34 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101990400 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:26:10 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101990400 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:26:22 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101777408 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:52:21 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101974016 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:52:21 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101875712 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:52:43 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101990400 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:52:45 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 102236160 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 07:53:44 Africa/Harare] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 101990400 bytes) in /home/webpus1/public_html/blu-impex/codeigniter/core/Exceptions.php on line 185
+[06-Apr-2019 10:00:51 Africa/Harare] PHP Parse error:  syntax error, unexpected end of file in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_listing.php on line 179
+[06-Apr-2019 10:30:59 Africa/Harare] PHP Parse error:  syntax error, unexpected end of file in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_listing.php on line 179
+[06-Apr-2019 10:32:38 Africa/Harare] PHP Parse error:  syntax error, unexpected end of file in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_listing.php on line 179
+[06-Apr-2019 10:50:25 Africa/Harare] PHP Parse error:  syntax error, unexpected '}' in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_listing.php on line 123
+[06-Apr-2019 10:51:20 Africa/Harare] PHP Parse error:  syntax error, unexpected '}' in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_listing.php on line 122
+[08-Apr-2019 09:55:24 Africa/Harare] PHP Fatal error:  Call to undefined function get_img() in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_details.php on line 89
+[08-Apr-2019 09:55:39 Africa/Harare] PHP Fatal error:  Call to undefined function get_img() in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_details.php on line 89
+[08-Apr-2019 09:56:21 Africa/Harare] PHP Fatal error:  Call to undefined function get_img() in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_details.php on line 89
+[08-Apr-2019 09:56:34 Africa/Harare] PHP Fatal error:  Call to undefined function get_img() in /home/webpus1/public_html/blu-impex/modules/products/views/view_product_details.php on line 89

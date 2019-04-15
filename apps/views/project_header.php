@@ -31,10 +31,8 @@
 							</div>
 
 							<ul>
-								<li><a href="javascript:void()"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="javascript:void()"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="javascript:void()"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="javascript:void()"><i class="fa fa-youtube"></i></a></li>
+								<li><a href="https://www.facebook.com/BluImpexNewDelhi/"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://www.youtube.com/channel/UCHG644kPnZvV6Y43G2wYKDA/feed"><i class="fa fa-youtube"></i></a></li>
 							</ul>
 						</div>
 					</div>

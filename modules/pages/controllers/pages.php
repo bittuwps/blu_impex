@@ -16,10 +16,6 @@ class Pages extends Public_Controller{
 
 
 
-
-
-
-
     public function index(){
 
         $friendly_url = $this->uri->uri_string;
@@ -78,16 +74,31 @@ class Pages extends Public_Controller{
             $body = str_replace('{message}', $this->input->post('message'), $body);
             $body = str_replace('{site_name}', $this->config->item('site_name'), $body);
             //$body = str_replace('{admin_email}', $this->config->item('site_name'), $body);
-            $mail_conf = array(
+            /*$mail_conf = array(
                 'subject' => "Enquiry from " . ucwords($this->input->post('name')) . " ",
-                'to_email' => "shashikant@webpulseindia.com",
+                'to_email' => "webpulseindia@gmail.com",
                 'from_email' => $this->input->post('email'),
                 'from_name' => $this->input->post('name'),
                 'body_part' => $body,
-            );
+            );*/
+            
+            $subject = "Enquiry from " . ucwords($this->input->post('name')) . " ";
+            $emails=array($this->admin_info->site_email,$this->admin_info->admin_email,'bittu.wps@gmail.com','webpulseindia@gmail.com');
+        
+            foreach($emails as $r=>$v){
+                $mail_conf = array(
+                    'subject' => $subject,
+                    'to_email' => $v,
+                    'from_email' => $this->input->post('email'),
+                    'from_name' => $this->input->post('name'),
+                    'body_part' => $body,
+                );
+                $this->dmailer->mail_notify($mail_conf);
+            }
+            
             //trace($mail_conf);
             //exit;
-            $this->dmailer->mail_notify($mail_conf);
+            //$this->dmailer->mail_notify($mail_conf);
             $msg = "Your request has been sent successfully ! We will get back to you shortly !";
             $this->session->set_userdata(array('msg_type' => 'success'));
             $this->session->set_flashdata('success', $msg);

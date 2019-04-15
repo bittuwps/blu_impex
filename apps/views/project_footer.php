@@ -15,9 +15,9 @@ if ($this->agent->is_referral()) {
 if (isset($_POST['catsubmit'])):
     if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])):
         //your site secret key
-        $secret = '6Ld6kyMUAAAAAAalCQJwBUo9X2SIRs6jVIkYKg2A';
+        $secret = '6Lch4J0UAAAAALjAma8OpmuVvQeloj8wVe4yrv5E';
         //get verify response data
-        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+        $verifyResponse = curl('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']); //file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
         $responseData = json_decode($verifyResponse);
         $qname = !empty($_POST['name']) ? $_POST['name'] : '';
         $qemail = !empty($_POST['email']) ? $_POST['email'] : '';
@@ -42,7 +42,7 @@ if (isset($_POST['catsubmit'])):
 				Message: " . $qmessage;
             // Always set content-type when sending HTML email
 
-            $emails=array($this->admin_info->site_email,$this->admin_info->admin_email,'bittu.wps@gmail.com');
+            $emails=array($this->admin_info->site_email,$this->admin_info->admin_email,'bittu.wps@gmail.com','webpulseindia@gmail.com');
             
             foreach($emails as $r=>$v){
                 $mail_conf = array(
@@ -52,7 +52,7 @@ if (isset($_POST['catsubmit'])):
                     'from_name' => $this->config->item('site_name'),
                     'body_part' => $htmlContent,
                 );
-                $this->dmailer->mail_notify($mail_conf);
+                $resp = $this->dmailer->mail_notify($mail_conf);
             }
 
             
@@ -163,25 +163,13 @@ endif;
                             <div class="wi-content wi-social">
                                 <ul>
                                     <li class="facebook">
-                                        <a href="javascript:void()">
+                                        <a href="https://www.facebook.com/BluImpexNewDelhi/">
                                             <i class="fa normal-show fa-facebook-f"></i>
                                             <i class="fa hover-show fa-facebook-f"></i>
                                         </a>
                                     </li>
-                                    <li class="twitter">
-                                        <a href="javascript:void()">
-                                            <i class="fa normal-show fa-twitter"></i>
-                                            <i class="fa hover-show fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li class="google">
-                                        <a href="javascript:void()">
-                                            <i class="fa normal-show fa-google-plus"></i>
-                                            <i class="fa hover-show fa-google-plus"></i>
-                                        </a>
-                                    </li>
                                     <li class="youtube">
-                                        <a href="javascript:void()">
+                                        <a href="https://www.youtube.com/channel/UCHG644kPnZvV6Y43G2wYKDA/feed">
                                             <i class="fa normal-show fa-youtube"></i>
                                             <i class="fa hover-show fa-youtube"></i>
                                         </a>
@@ -260,7 +248,7 @@ endif;
                                 <textarea id="text" name="message" tabindex="105" placeholder="Your Message*" required></textarea>
                             </div>
                             <div class="form-group" style="margin-bottom: 0;">
-                                <div class="g-recaptcha" tabindex="106" data-sitekey="6Ld6kyMUAAAAAGGDDCH1wyrn7E1__Rj6_ORCaK2k"
+                                <div class="g-recaptcha" tabindex="106" data-sitekey="6Lch4J0UAAAAAN_Bt3D9DnBg_JS-1LSYnSa4vjMC"
                                     style="transform:scale(0.80);-webkit-transform:scale(0.82); transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
                             </div>
                             <button name="catsubmit" class="read_btn btn-submit" type="submit" tabindex="7" id="contact-submit"
@@ -272,6 +260,15 @@ endif;
         </div>
     </div>
 </div>
+
+<?php if (!empty($errMsg) or !empty($succMsg)){ ?>
+	<script>
+		$(document).ready(function(){			
+            $('#prd-dtl-enq').trigger('click');			
+		});
+	</script>
+<?php } ?>
+
 <script>
     /* $(document).ready(function(){
         $(document).find('a').attr('href','javascript:;;');

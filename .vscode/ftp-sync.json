@@ -1,8 +1,8 @@
 {
-    "remotePath": "./",
-    "host": "webpulse.co",
-    "username": "bluimpex@webpulse.co",
-    "password": "eZ2JB@gAV65Q",
+    "remotePath": "./public_html",
+    "host": "blu-impex.com",
+    "username": "bluimpex",
+    "password": "blU!&)#*19!",
     "port": 21,
     "secure": false,
     "protocol": "ftp",

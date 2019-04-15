@@ -50,15 +50,25 @@
 							<p><?= $res['products_description'] ?></p>
 						</div>
 					</div>
-					<div class="social-m-section">
+
+					<div class="row">
+						<div class="col-md-12">
+							<button class="details_en"  id="prd-dtl-enq"  data-target="#productID" data-toggle="modal" onclick="$('#catID').val('<?php echo $res['products_id'];?>');
+								$('.catName').html('<?php echo $res['product_name'];?>');
+								$('.catImg').attr('src','<?php echo get_image('product_images', $mval['media'], '400', '500', 'R'); ?>');
+								$('.catDesc').html(`<?php echo strip_tags($res['products_description']);?>`);">Enquire Now</button>
+						</div>
+					</div>
+					<!-- Go to www.addthis.com/dashboard to customize your tools -->
+					<!-- <div class="social-m-section">
 						<div> 
 							<h4 class="heading">Share</h4> 
 							<div class="addthis_inline_share_toolbox"></div>
-								<!-- Go to www.addthis.com/dashboard to customize your tools -->
+								
 								<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ca2e7ad73f83648"></script>
 							</div>
 						</div>
-					</div>   
+					</div>  -->  
 				</div>
 			</div>
 		</div>
@@ -123,21 +133,20 @@
 
 <script>
 	$(function () {
-		$("#datepicker").datepicker({
+		/* $("#datepicker").datepicker({
 			changeMonth: true,
 			changeYear: true
-		});
-	}); <
-	/script> <
-	script type = "text/javascript" >
-		$(document).ready(function () {
+		}); */
+	}); </script> 
+	<script type = "text/javascript" >
+		/* $(document).ready(function () {
 			$('input.timepicker').timepicker({
 				dynamic: false,
 				dropdown: true,
 				scrollbar: true
 
 			});
-		});
+		}); */
 
 	var CartPlusMinus = $('.cart-plus-minus');
 	CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
@@ -165,25 +174,25 @@
 		var prd_id = $(prd).attr('prd-id');
 		$('#add_to_cat_form').find('[name=product_id]').val(prd_id);
 		$('form#add_to_cat_form').submit();
-	} <
-	/script> <
-	script src = "assets/designer/themes/default/js/magiczoomplus.js" > < /script> <
+	} 
+	
+	</script> <script src = "assets/designer/themes/default/js/magiczoomplus.js" > < /script> <
 		script >
 		$(function () {
 			$("#datepicker").datepicker({
 				changeMonth: true,
 				changeYear: true
 			});
-		}); <
-	/script> <
-	script type = "text/javascript" >
+		}); 
+		</script> 
+		<script type = "text/javascript" >
 		$(document).ready(function () {
-			$('input.timepicker').timepicker({
+			/* $('input.timepicker').timepicker({
 				dynamic: false,
 				dropdown: true,
 				scrollbar: true
 
-			});
+			}); */
 		});
 
 	var CartPlusMinus = $('.cart-plus-minus');
