@@ -1,30 +1,58 @@
 <?php
+
 	$this->load->view('top_application');
+
 	$fieldType = $this->session->userdata('field_type');
+
 ?>
+
+
 
 <?php
+
 	$cats = $this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND parent_id = '0' ORDER BY sort_order limit 0,10")->result_array();
+
 	foreach($cats as $k=>$r){
+
 		$cats[$k]['s_cat']=$this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND parent_id = '".$r['category_id']."' ORDER BY sort_order limit 0,10")->result_array();
+
 		foreach($cats[$k]['s_cat'] as $s_k=>$s_r){
+
 			$cats[$k]['s_cat'][$s_k]['s_cat']=$this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND parent_id = '".$s_r['category_id']."' ORDER BY sort_order limit 0,10")->result_array();
+
 		}
+
 	}
+
 ?>
 
-<section class="preview-2">
-	<div id="home_slider" class="slides nivoSlider">
-		<?php foreach($banner as $ban_image){
-			?>
-				<img src="<?php echo get_image('banner', $ban_image['banner_image'], '1600', '600', 'R'); ?>" alt="<?php echo $ban_image['ban_title'];?>" />
-			<?php 
-			} 
-		?>
-	</div>
-</section>
 
-<section class="fetures">
+
+<div class="preview-2">
+
+	<div id="home_slider" class="slides nivoSlider">
+
+		<?php foreach($banner as $ban_image){
+
+			?>
+
+				<img src="<?php echo get_image('banner', $ban_image['banner_image'], '1600', '600', 'R'); ?>" alt="<?php echo $ban_image['ban_title'];?>" />
+
+			<?php 
+
+			} 
+
+		?>
+
+	</div>
+
+</div>
+
+
+
+<div class="fetures">
+
+
 
 	<div class="container">
 
@@ -68,6 +96,8 @@
 
 			</div>
 
+
+
 			<div class="col-sm-3 col-md-3 col-lg-3 wow fadeInDown animated" data-wow-delay=".3s">
 
 				<div class="wcu-item">
@@ -85,6 +115,8 @@
 				</div>
 
 			</div>
+
+
 
 			<div class="col-sm-3 col-md-3 col-lg-3 wow fadeInRight animated" data-wow-delay=".4s">
 
@@ -104,13 +136,21 @@
 
 			</div>
 
+
+
 		</div>
+
+
 
 	</div>
 
-</section>
 
-<section id="about" class="about_us no-padding">
+
+</div>
+
+
+
+<div id="about" class="about_us no-padding">
 
 
 
@@ -124,13 +164,15 @@
 
 					<div class="about-image hover-effect">
 
-						<img alt="" src="<?php echo theme_url(); ?>images/home/about/non-woven-bag-making-machine.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
+						<img  src="<?php echo theme_url(); ?>images/home/about/non-woven-bag-making-machine.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
 
 						 title="<?= $this->admin_info->site_name ?>">
 
 					</div>
 
 				</div>
+
+
 
 				<div class="col-md-6 sm-padding-50px-tb wow fadeInRight animated" data-wow-delay=".3s">
 
@@ -156,6 +198,8 @@
 
 	</div>
 
+
+
 	<div class="half-section">
 
 		<div class="container-fluid">
@@ -166,7 +210,7 @@
 
 					<div class="about-image hover-effect">
 
-						<img alt="" src="<?php echo theme_url(); ?>images/home/about/blu-impex-home.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
+						<img  src="<?php echo theme_url(); ?>images/home/about/blu-impex-home.jpg" class="equalheight" alt="<?= $this->admin_info->site_name ?>"
 
 						 title="<?= $this->admin_info->site_name ?>">
 
@@ -174,7 +218,11 @@
 
 				</div>
 
+
+
 				<div class="col-md-6 sm-padding-50px-tb wow fadeInLeft animated" data-wow-delay=".5s">
+
+
 
 					<div class="split-box text-center center-block equalheight" style="height: 470.984px;">
 
@@ -183,10 +231,15 @@
 							<h1>Why <span>Us?</span></h1>
 
 							<p><span style="font-size: 11pt;"><strong>Quality- Our Foundation</strong></span></p>
+
 							<p><span style="font-weight: 400; font-size: 11pt;">We have stabilized ourselves as an outstanding name in the sphere of modern process technologies equipment &amp; plant. In order to keep pace with modern technology and the fast-moving tech world, we have strengthened our work strategies and have brought the best machines in the vast Indian and overseas markets. </span></p>
+
 							<p><span style="font-size: 11pt;"><strong>Machines, Manufactured by Trained Professionals</strong></span></p>
+
 							<p><span style="font-weight: 400; font-size: 11pt;">The offered products are manufactured by our trained professionals using high-quality raw materials and advanced technology in line with set industry standards. These products are known for their features like perfect finish, low maintenance, easy to operate, excellent functionality, and long working life. </span></p>
+
 							<p><span style="font-size: 11pt;"><strong>Available in Umpteen Choices</strong></span></p>
+
 							<p><span style="font-weight: 400; font-size: 11pt;">The machines are available in a myriad of specifications from which our clients can choose as per their requirements. Our offered products are stringently checked by our quality connoisseurs against different quality parameters. The entire work is supervised by our team members who have rich knowledge and wide exposure in the domain.</span></p>
 
 						</div>
@@ -201,79 +254,145 @@
 
 	</div>
 
-</section>
+</div>
 
 
 
-<section class="popular_section">
+
+
+
+
+<div class="popular_section">
+
 	<div class="container">
+
 		<div class="row">
+
 			<div class="col-12 wow fadeInLeft animated" data-wow-delay=".1s">
+
 				<div class="title text-center">
+
 					<h2>Our <span>Products</span></h2>
+
 				</div>
+
 			</div>
 
+
+
 			<div class="col-12">
+
+
 
 				<div id="service_item">
+
 					<?php 
+
 					foreach ($new_pro as $result)
+
 					{?>
 
+
+
 					<div class="item wow fadeInDown animated" data-wow-delay=".2s">
+
 						<div class="product-box common-cart-box">
+
 							<div class="product-img common-cart-img">
+
 								<div class="image13">
+
 									<a href="<?= site_url($result['friendly_url']);?>" title="<?php echo $result['category_name'];?>">
+
 										<img src="<?php echo get_image('category', $result['category_image'], '300', '300', 'R'); ?>" alt="<?php echo $result['category_name'];?>" title="<?php echo $result['category_name'].subdomain_name();?>">
+
 									</a>
+
 								</div>
 
+
+
 							</div>
+
+
 
 							<div class="product-info common-cart-info text-center">
+
 								<h2><a class="cart-name" href="<?= site_url($result['friendly_url']);?>" title="<?php echo $result['category_name'].subdomain_name();?>">
+
 										<?php echo $result['category_name'];?> </a></h2>
 
+
+
 								<a class="read_btn" href="<?= site_url($result['friendly_url']);?>" title="<?php echo $result['category_name'].subdomain_name();?>">View
+
 									More</a>
+
 							</div>
+
 						</div>
+
 					</div>
+
 					<?php }?>
 
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
-<section class="popular_section">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 wow fadeInLeft animated" data-wow-delay=".1s">
-				<div class="title text-center">
-					<h2>Our Product's<span> Videos</span></h2>
+
 				</div>
+
 			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<div class="popular_section">
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-12 wow fadeInLeft animated" data-wow-delay=".1s">
+
+				<div class="title text-center">
+
+					<h2>Our Product's<span> Videos</span></h2>
+
+				</div>
+
+			</div>
+
 						
+
 			<div class="col-12">
 
+
+
 				<div id="our_videos">
+
 					<?php 
+
 						$videos = $this->db->select('*')->from('wl_videos')->where(['status'=>'1'])->limit(12)->get()->result_array();
+
 						foreach ($videos as $r){ 
+							$vid_id=end(explode('/',$r['link']));
+							$img_link='https://img.youtube.com/vi/'.$vid_id.'/0.jpg';
 							?>
+
 								<div class="item wow fadeInDown animated p-0" data-wow-delay=".2s">
+
 									<div class="product-box common-cart-box">
 										<div class="product-img common-cart-img">
 											<div class="image13">
-												<iframe width="100%" height="250px"
+												<!-- <iframe width="100%" height="250px"
 													src="<?= $r['link'] ?>">
-												</iframe>
+												</iframe> -->
+												<img src="<?= $img_link ?>" class="img" width="100%" height="250px" />
 											</div>
-
 										</div>
 
 										<div class="product-info common-cart-info text-center">
@@ -285,32 +404,44 @@
 										</div>
 									</div>
 								</div>
-
 							<?php 
 						}
+
 					?>
 
+
+
 				</div>
+
 			</div>
+
 		</div>
+
 	</div>
-</section>
+
+</div>
 
 
 
 
 
-<section class="request_call">
+<div class="request_call">
 
 	<div class="container">
 
+
+
 		<div class="row">
+
+
 
 			<div class="col-lg-6  col-md-6 hidden-xs wow fadeInLeft animated animated" data-wow-delay=".2s">
 
-				<img class="ming" src="<?php echo theme_url(); ?>images/home/player-img.png">
+				<img class="ming" src="<?php echo theme_url(); ?>images/home/player-img.png" alt="Blue Impex" title="Blue Impex">
 
 			</div>
+
+
 
 			<div class="col-lg-6 col-md-6">
 
@@ -322,7 +453,7 @@
 
 						working day.</p>
 
-					<?php $this->load->view('pages/form');?>
+					<?php $this->load->view('pages/form',array('contact_form_id'=>'contact-form-id-home'));?>
 
 				</div>
 
@@ -332,93 +463,11 @@
 
 	</div>
 
-</section>
+</div>
 
 
 
-<!--<div class="certificate">
 
-				<div class="container">
-
-					<div class="row">
-
-						<div class="col-md-5 wow fadeInLeft animated animated" data-wow-delay=".1s">
-
-							<div class="certificate_img">
-
-								<img src="<?php echo theme_url(); ?>images/home/certificate.jpg" class="img-responsive" alt="certificate">
-
-								
-
-							</div>
-
-						</div>
-
-						<div class="col-md-7">
-
-						<div class="wow fadeInRight animated animated" data-wow-delay=".2s">
-
-							<div class="section-title-md">
-
-								<h2>RECOGNIZED <span>QUALITY</span></h2>
-
-							</div>
-
-							<p>We persistently follow nationally and internationally recognized quality standards and technical specifications. At our quality department, we have all the requisite tools, equipments, and technologies to help us ascertain the quality of our products.</p>
-
-							<p>We take utmost care and ensure that our production process right from checking of raw materials to final shipment of our consignments confirm to industrial standards and norms.</p>
-
-							</div>
-
-							<div class="recognized_quality wow fadeInRight animated animated" data-wow-delay=".3s">
-
-								<div class="recognized_thumb">
-
-									<img src="designer/images/home/marketing-research.jpg" class="img-responsive" alt="">
-
-								</div>
-
-								<div class="recognized_dec">
-
-									<h4>MARKETING <span>RESEARCH</span></h4>
-
-										<p>It is a long established fact that a reader will be distracted by the readable content of a page when using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
-
-								</div>
-
-							</div>
-
-							
-
-							<div class="recognized_quality wow fadeInRight animated animated" data-wow-delay=".4s">
-
-								<div class="recognized_thumb">
-
-									<img src="designer/images/home/environment-&-efficiency.jpg" class="img-responsive" alt="">
-
-								</div>
-
-								<div class="recognized_dec">
-
-									<h4>ENVIRONMENT & <span>EFFICIENCY</span></h4>
-
-										<p>It is a long established fact that a reader will be distracted by the readable content of a page when using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
-
-								</div>
-
-							</div>
-
-							
-
-							
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>-->
 
 <div class="blog-area pt-120 pb-90">
 
@@ -493,5 +542,7 @@
 	</div>
 
 </div>
+
+
 
 <?php $this->load->view('bottom_application'); ?>

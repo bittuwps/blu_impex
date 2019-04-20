@@ -59,7 +59,7 @@ class Home extends Public_Controller
         //home page content
         $data['home_res'] = $this->db->query("SELECT * FROM wl_cms_pages WHERE page_id = '13'")->result_array();
 
-        $data['new_pro'] = $this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND parent_id='1' ORDER BY sort_order")->result_array();
+        $data['new_pro'] = $this->db->query("SELECT * FROM wl_categories WHERE status = '1' AND parent_id='1' ORDER BY sort_order limit 5")->result_array();
 
         $data['blog'] = $this->db->query("SELECT * FROM wl_blog order by article_id DESC limit 0,3")->result_array();
 		

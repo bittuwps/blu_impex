@@ -77,7 +77,6 @@ class MY_Upload extends CI_Upload
 
     public function my_upload($filed, $path)
     {
-
         $CI = $this->CI;
 
         $CI->load->library('upload');
